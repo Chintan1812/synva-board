@@ -1,0 +1,11 @@
+node_modules/
+
+# Credentials. .env.example is the committed template.
+.env
+.env.*
+!.env.example
+
+# Scratch PNG renders from `npm run verify`
+.tmp/
+
+.DS_Store

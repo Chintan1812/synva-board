@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      :root { font-family: Inter, -apple-system, system-ui, sans-serif; }
+      body { margin: 0; padding: 14px; color: #1a1a1a; background: #faf8f4; }
+      h1 { font-size: 13px; margin: 0 0 2px; font-weight: 700; }
+      p.hint { font-size: 11px; color: #6b6b6b; margin: 0 0 10px; line-height: 1.4; }
+      .filerow {
+        display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+      }
+      .filebtn {
+        display: inline-block; height: 34px; line-height: 34px; padding: 0 14px;
+        border: 1px solid #1a1a1a; border-radius: 8px; background: #fff;
+        font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap;
+      }
+      .filebtn:hover { background: #f0ebe1; }
+      #fname { font-size: 11px; color: #6b6b6b; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      input[type="file"] { display: none; }
+      .or { font-size: 11px; color: #6b6b6b; margin: 0 0 6px; }
+      textarea {
+        width: 100%; height: 150px; box-sizing: border-box; resize: vertical;
+        font-family: ui-monospace, Menlo, monospace; font-size: 11px;
+        border: 1px solid #e8e4dc; border-radius: 8px; padding: 8px; background: #fff;
+        color: #1a1a1a; outline: none;
+      }
+      textarea:focus { border-color: #fbd34a; box-shadow: 0 0 0 2px rgba(251,211,74,0.5); }
+      button.build {
+        margin-top: 10px; width: 100%; height: 40px; border: 1px solid #1a1a1a;
+        border-radius: 8px; background: #fbd34a; color: #4c3205; font-weight: 700;
+        font-size: 13px; cursor: pointer;
+      }
+      button.build:hover { background: #f6c92e; }
+      .err { color: #994334; font-size: 11px; margin-top: 8px; min-height: 14px; }
+    </style>
+  </head>
+  <body>
+    <h1>Synva SVG to Board</h1>
+    <p class="hint">
+      Choose an SVG file (or paste one), then Build. Graphics come in as vectors,
+      text as real editable text (auto-width, exact font). Works in Figma and FigJam.
+    </p>
+
+    <div class="filerow">
+      <label class="filebtn" for="file">Choose SVG file…</label>
+      <input type="file" id="file" accept=".svg,image/svg+xml,.txt" />
+      <span id="fname">no file chosen</span>
+    </div>
+
+    <p class="or">…or paste the SVG:</p>
+    <textarea id="svg" placeholder="Paste &lt;svg&gt;…&lt;/svg&gt; here"></textarea>
+    <button class="build" id="build">Build on board</button>
+    <div class="err" id="err"></div>
+
+    <script>
+      const err = document.getElementById("err");
+      const area = document.getElementById("svg");
+
+      // File picker -> read the file's text into the box, then build automatically.
+      document.getElementById("file").onchange = (e) => {
+        const f = e.target.files && e.target.files[0];
+        if (!f) return;
+        document.getElementById("fname").textContent = f.name;
+        const reader = new FileReader();
+        reader.onload = () => {
+          area.value = String(reader.result || "");
+          build();
+        };
+        reader.onerror = () => { err.textContent = "Could not read that file."; };
+        reader.readAsText(f);
+      };
+
+      document.getElementById("build").onclick = build;
+
+      async function build() {
+        err.textContent = "";
+        const raw = area.value.trim();
+        if (!raw) { err.textContent = "Choose or paste an SVG first."; return; }
+
+        let doc;
+        try {
+          doc = new DOMParser().parseFromString(raw, "image/svg+xml");
+        } catch (e) {
+          err.textContent = "Could not parse the SVG."; return;
+        }
+        if (doc.querySelector("parsererror")) {
+          err.textContent = "That does not look like valid SVG."; return;
+        }
+
+        const svg = doc.documentElement;
+
+        // Pull every <text> out (with its attributes) to rebuild as native,
+        // editable Figma text instead of Figma's broken imported text.
+        const texts = [];
+        svg.querySelectorAll("text").forEach((t) => {
+          const ff = (t.getAttribute("font-family") || "Inter").replace(/^['"]|['"]$/g, "");
+          texts.push({
+            x: parseFloat(t.getAttribute("x") || "0"),
+            y: parseFloat(t.getAttribute("y") || "0"),
+            fontFamily: ff.split(",")[0].trim(),
+            fontSize: parseFloat(t.getAttribute("font-size") || "16"),
+            fontWeight: t.getAttribute("font-weight") || "400",
+            fill: t.getAttribute("fill") || "#000000",
+            // honor SVG centering so the board matches the source exactly
+            textAnchor: t.getAttribute("text-anchor") || "start",
+            baseline: t.getAttribute("dominant-baseline") || t.getAttribute("alignment-baseline") || "alphabetic",
+            text: (t.textContent || "").trim(),
+          });
+          t.parentNode.removeChild(t);
+        });
+
+        // Pull every <image> out too — decode its data-URI to raw bytes so the
+        // plugin can build a native image fill (createNodeFromSvg is unreliable
+        // with embedded raster). Runs in the iframe, which has fetch/atob.
+        const images = [];
+        for (const im of Array.from(svg.querySelectorAll("image"))) {
+          const href = im.getAttribute("href") || im.getAttribute("xlink:href") || "";
+          let bytes = null;
+          if (href) {
+            try { bytes = new Uint8Array(await (await fetch(href)).arrayBuffer()); }
+            catch (e) { /* leave bytes null — the plugin skips it */ }
+          }
+          images.push({
+            x: parseFloat(im.getAttribute("x") || "0"),
+            y: parseFloat(im.getAttribute("y") || "0"),
+            width: parseFloat(im.getAttribute("width") || "0"),
+            height: parseFloat(im.getAttribute("height") || "0"),
+            bytes,
+          });
+          im.parentNode.removeChild(im);
+        }
+
+        const graphicsSvg = new XMLSerializer().serializeToString(svg);
+        parent.postMessage({ pluginMessage: { type: "build", graphicsSvg, texts, images } }, "*");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="515" height="78" viewBox="0 0 515 78">
+<rect x="1" y="1" width="513" height="76" rx="38" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="1.5"/>
+<rect x="28" y="17" width="44" height="44" rx="14" fill="#FFECBB"/>
+<g transform="translate(38 27) scale(1.0000)"><path d="M14 4.1 12 6" fill="none" stroke="#4C3205" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m5.1 8-2.9-.8" fill="none" stroke="#4C3205" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m6 12-1.9 2" fill="none" stroke="#4C3205" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.2 2.2 8 5.1" fill="none" stroke="#4C3205" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z" fill="none" stroke="#4C3205" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="88" y="39" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="20" font-weight="700" fill="#1A1A1A">Browse at your own pace</text>
+<line x1="366" y1="25" x2="366" y2="53" stroke="#E8E4DC" stroke-width="1.5"/>
+<text x="386" y="39" dominant-baseline="central" font-family="Inter" font-size="16.5" font-weight="700" fill="#4C3205">synva.io</text>
+<g transform="translate(469 30) scale(0.7500)"><path d="M7 7h10v10" fill="none" stroke="#4C3205" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 17 17 7" fill="none" stroke="#4C3205" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

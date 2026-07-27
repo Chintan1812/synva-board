@@ -1,0 +1,27 @@
+{
+  "name": "synva-boards",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Website-styled SVG boards for Figma/FigJam — the video props Chintan narrates over.",
+  "scripts": {
+    "board:chapters": "node --env-file-if-exists=.env.local scripts/brand/make-chapters.mjs",
+    "board:cta": "node --env-file-if-exists=.env.local scripts/brand/make-cta.mjs",
+    "board:framework": "node --env-file-if-exists=.env.local scripts/brand/make-framework.mjs",
+    "board:lifestyle": "node --env-file-if-exists=.env.local scripts/styletto-ix/make-lifestyle.mjs",
+    "board:reveal-covers": "node --env-file-if-exists=.env.local scripts/brand/make-reveal-covers.mjs",
+    "board:styletto-colors": "node --env-file-if-exists=.env.local scripts/styletto-ix/make-colors.mjs",
+    "board:styletto-compare": "node --env-file-if-exists=.env.local scripts/styletto-ix/make-compare.mjs",
+    "board:styletto-features": "node --env-file-if-exists=.env.local scripts/styletto-ix/make-features.mjs",
+    "board:styletto-hook": "node --env-file-if-exists=.env.local scripts/styletto-ix/make-hook.mjs",
+    "board:swatches": "node --env-file-if-exists=.env.local scripts/brand/make-swatches-editable.mjs",
+    "board:title-banner": "node --env-file-if-exists=.env.local scripts/brand/make-title-banner.mjs",
+    "boards:all": "node scripts/_all.mjs",
+    "verify": "node scripts/_verify.mjs",
+    "new-board": "node scripts/_new-board.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "1.17.0",
+    "sharp": "0.34.5"
+  }
+}

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1240" height="970" viewBox="0 0 1240 970">
+<rect x="0" y="0" width="1240" height="970" rx="30" fill="#FAF8F4"/>
+<rect x="48" y="48" width="113" height="34" rx="17" fill="#FFECBB"/>
+<text x="104.5" y="65" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="13" font-weight="700" fill="#4C3205">Reveal kit</text>
+<g transform="translate(1070.84 44) scale(0.03221)"><g fill="#4C3205">
+&#x9;<path d="M499.9,675.9v99c0,0-232-28-245-162c-11-114,98-198,427-270v124c-156,29-238,56-278,87C352.9,591.9,359.9,654.9,499.9,675.9z M499.9,575.9v100l124,20v85l-336,119v139l442-168v-254L499.9,575.9L499.9,575.9z"></path>
+&#x9;<path d="M1473.7,782.3c0,36-14.2,65.5-42.6,88.5c-31.7,26.8-78.1,40.1-139.3,40.1c-68.8,0-132.2-17.5-190.1-52.4v-61.8h0.8c58.4,38.8,122.3,61.7,191.7,61.7c37.1,0,66.6-4.5,88.5-18.7c21.3-14.2,31.9-32.8,31.9-55.7c0-20.8-9.3-37.1-27.8-49.2c-18.6-11.5-56-22.4-112.2-32.8c-60.1-11.5-102.4-25.4-127-41.8c-26.8-18-40.1-44-40.1-77.8c0-36,15.8-66.3,47.5-90.9c32.2-24,75.1-36,128.6-36c60.6,0,116.6,14.8,167.9,44.2v55.7h-0.8c-56.2-33.9-113.6-50.8-172-50.8c-33.3,0-60.1,6.8-80.3,20.5c-21.3,13.7-31.9,31.4-31.9,53.2s10.9,37.7,32.8,47.5c21.3,10.4,59.5,21,114.7,32c60.1,12,101.8,27.6,125.3,46.7C1462.2,723.1,1473.7,749,1473.7,782.3L1473.7,782.3z M1744,845.4l-163.8-378.5h-63.9l195.8,446.5l-56.5,138.4h59.8L1962,466.9h-61.4L1744,845.4L1744,845.4z M2677.6,844.9L2513.9,467h-63.1l192.6,431.7h67.5L2895.7,467h-61.5L2677.6,844.9z M2206.4,455.5c-98.3,0-208.7,65.7-208.7,217.4v226.6h60.6V663.3c0-81.9,52.9-155.4,148.1-155.4s148.1,73.5,148.1,155.4v236.1h60.6V672.9C2415.1,521.2,2304.7,455.5,2206.4,455.5L2206.4,455.5z M3295.8,585.5v313.9h-54.2l-1.2-44.7c-34.7,28.5-77.5,52.3-128.9,56.2c-61,4.6-107.6-10.3-139.3-37.1c-28.4-22.9-42.6-52.4-42.6-88.5c0-32.3,18.4-79.3,85.9-104c46.1-16.9,141.2-36,163.9-42.6c47.6-13.8,57.4-35.6,57.4-57.4s-10.6-39.6-31.9-53.2c-20.2-13.7-47-20.5-80.3-20.5c-58.4,0-105.1,18-161.4,51.8h-0.8v-55.7c51.3-29.5,96.7-45.3,157.3-45.3c53.5,0,96.4,12,128.6,36C3279.9,519.2,3295.8,549.5,3295.8,585.5L3295.8,585.5z M3244.4,797.1V663.3c-24.7,22.1-64,31.9-115.7,41.8c-56.2,10.4-93.6,21.3-112.2,32.8c-18.6,12-27.9,28.4-27.9,49.2c0,22.9,10.6,41.5,31.9,55.7c21.9,14.2,53.5,20,88.5,18.2C3165,858.2,3206.1,832.4,3244.4,797.1L3244.4,797.1z"></path>
+</g></g>
+<text x="48" y="140" font-family="Bricolage Grotesque" font-size="42" font-weight="700" fill="#1A1A1A">Frosted covers</text>
+<rect x="48" y="156" width="72" height="7" rx="3.5" fill="#FBD34A"/>
+<text x="48" y="194" font-family="Inter" font-size="15" font-weight="400" fill="#4F4F4F">Drop a veil over any part of a board, then delete or slide it away</text>
+<text x="48" y="216" font-family="Inter" font-size="15" font-weight="400" fill="#4F4F4F">to reveal, one piece at a time.</text>
+<text x="48" y="256" font-family="Inter" font-size="13" font-weight="700" fill="#6B6B6B">How it looks</text>
+<rect x="48" y="276" width="1144" height="184" rx="18" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="1.5"/>
+<rect x="74" y="300" width="1092" height="42" rx="10" fill="#FBD34A"/>
+<text x="92" y="327" font-family="Inter" font-size="15" font-weight="700" fill="#4C3205">The pick you reveal lives on this row</text>
+<text x="74" y="372" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">Signia Styletto 7IX is the flagship model.</text>
+<text x="74" y="402" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">Everyone lands in one of three budget tiers.</text>
+<rect x="677" y="276" width="515" height="184" rx="16" fill="#FFFFFF" fill-opacity="0.82" stroke="#1A1A1A" stroke-opacity="0.12" stroke-width="1.5"/>
+<text x="74" y="482" font-family="Inter" font-size="12.5" font-weight="700" fill="#6B6B6B">revealed</text>
+<text x="691" y="482" font-family="Inter" font-size="12.5" font-weight="700" fill="#6B6B6B">still under the veil (frosted)</text>
+<text x="48" y="542" font-family="Inter" font-size="13" font-weight="700" fill="#6B6B6B">Grab a veil, resize it over your content, delete to reveal</text>
+<rect x="48" y="564" width="200" height="118" rx="16" fill="#FFFFFF" fill-opacity="0.82" stroke="#1A1A1A" stroke-opacity="0.12" stroke-width="1.5"/>
+<text x="148" y="623" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="13" font-weight="700" fill="#1A1A1A">veil</text>
+<text x="48" y="708" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#1A1A1A">Small</text>
+<text x="48" y="728" font-family="Inter" font-size="12.5" font-weight="400" fill="#4F4F4F">a chip or a stat</text>
+<rect x="282" y="564" width="250" height="150" rx="16" fill="#FFFFFF" fill-opacity="0.82" stroke="#1A1A1A" stroke-opacity="0.12" stroke-width="1.5"/>
+<text x="407" y="639" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="13" font-weight="700" fill="#1A1A1A">veil</text>
+<text x="282" y="740" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#1A1A1A">Card</text>
+<text x="282" y="760" font-family="Inter" font-size="12.5" font-weight="400" fill="#4F4F4F">one card</text>
+<rect x="566" y="564" width="176" height="300" rx="16" fill="#FFFFFF" fill-opacity="0.82" stroke="#1A1A1A" stroke-opacity="0.12" stroke-width="1.5"/>
+<text x="654" y="714" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="13" font-weight="700" fill="#1A1A1A">veil</text>
+<text x="566" y="890" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#1A1A1A">Column</text>
+<text x="566" y="910" font-family="Inter" font-size="12.5" font-weight="400" fill="#4F4F4F">a whole column</text>
+<rect x="776" y="564" width="300" height="150" rx="16" fill="#FFFFFF" fill-opacity="0.82" stroke="#1A1A1A" stroke-opacity="0.12" stroke-width="1.5"/>
+<text x="926" y="639" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="13" font-weight="700" fill="#1A1A1A">veil</text>
+<text x="776" y="740" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#1A1A1A">Full-width</text>
+<text x="776" y="760" font-family="Inter" font-size="12.5" font-weight="400" fill="#4F4F4F">a wide region</text>
+<text x="48" y="936" font-family="Inter" font-size="13" font-weight="500" fill="#6B6B6B">Want a real blur? Select a veil in Figma, then Effects, Background blur. It stays import-safe.</text>
+</svg>
