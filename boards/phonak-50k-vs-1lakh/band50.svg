@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1192" height="930" viewBox="0 0 1192 930">
+<rect x="0" y="0" width="1192" height="930" fill="#FAF8F4"/>
+<text x="56" y="62" font-family="Bricolage Grotesque" font-size="38" font-weight="700" fill="#1A1A1A">At this budget, you have three options</text>
+<rect x="56" y="76" width="64" height="7" rx="3.5" fill="#FBD34A"/>
+<text x="56" y="112" font-family="Inter" font-size="17" font-weight="400" fill="#4F4F4F">Near enough the same MRP. Two things separate them.</text>
+<rect x="56" y="150" width="1080" height="538" rx="22" fill="#FFFFFF"/>
+<rect x="57.5" y="376" width="1077" height="78" fill="#FAF8F4"/>
+<rect x="57.5" y="532" width="1077" height="78" fill="#FAF8F4"/>
+<rect x="636" y="151.5" width="250" height="535" fill="#FFECBB"/>
+<line x1="386" y1="150" x2="386" y2="688" stroke="#E8E4DC" stroke-width="1"/>
+<line x1="636" y1="150" x2="636" y2="688" stroke="#E8E4DC" stroke-width="1"/>
+<line x1="886" y1="150" x2="886" y2="688" stroke="#E8E4DC" stroke-width="1"/>
+<line x1="1136" y1="150" x2="1136" y2="688" stroke="#E8E4DC" stroke-width="1"/>
+<text x="84" y="202" font-family="Bricolage Grotesque" font-size="18" font-weight="600" fill="#1A1A1A">One budget, three devices</text>
+<text x="84" y="226" font-family="Inter" font-size="13" font-weight="400" fill="#6B6B6B">MRP within a few hundred rupees</text>
+<text x="511" y="186" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#6B6B6B">PHONAK</text>
+<text x="511" y="220" text-anchor="middle" font-family="Bricolage Grotesque" font-size="27" font-weight="700" fill="#1A1A1A">Terra</text>
+<text x="511" y="242" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">RIC 312</text>
+<text x="761" y="186" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#6B6B6B">SIGNIA</text>
+<text x="761" y="220" text-anchor="middle" font-family="Bricolage Grotesque" font-size="27" font-weight="700" fill="#1A1A1A">Orion 50</text>
+<text x="761" y="242" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">Charge &amp; Go</text>
+<rect x="706" y="258" width="110" height="26" rx="13" fill="#FBD34A"/>
+<text x="761" y="271" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="10" font-weight="700" fill="#4C3205">BEST SELLER</text>
+<text x="1011" y="186" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#6B6B6B">SIGNIA</text>
+<text x="1011" y="220" text-anchor="middle" font-family="Bricolage Grotesque" font-size="27" font-weight="700" fill="#1A1A1A">Sirion 75</text>
+<text x="1011" y="242" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">Connect</text>
+<line x1="56" y1="298" x2="1136" y2="298" stroke="#E8E4DC" stroke-width="1.5"/>
+<text x="84" y="333" font-family="Inter" font-size="17.5" font-weight="600" fill="#1A1A1A">MRP</text>
+<text x="84" y="354" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">for a pair</text>
+<text x="511" y="345" text-anchor="middle" font-family="Bricolage Grotesque" font-size="24" font-weight="700" fill="#1A1A1A">₹66,000</text>
+<text x="761" y="345" text-anchor="middle" font-family="Bricolage Grotesque" font-size="24" font-weight="700" fill="#1A1A1A">₹65,980</text>
+<text x="1011" y="345" text-anchor="middle" font-family="Bricolage Grotesque" font-size="24" font-weight="700" fill="#1A1A1A">₹65,980</text>
+<line x1="56" y1="376" x2="1136" y2="376" stroke="#E8E4DC" stroke-width="1"/>
+<text x="84" y="411" font-family="Inter" font-size="17.5" font-weight="600" fill="#1A1A1A">Channels</text>
+<text x="84" y="432" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">sound processing detail</text>
+<text x="511" y="424" text-anchor="middle" font-family="Bricolage Grotesque" font-size="28" font-weight="700" fill="#1A1A1A">8</text>
+<text x="761" y="424" text-anchor="middle" font-family="Bricolage Grotesque" font-size="28" font-weight="700" fill="#1A1A1A">8</text>
+<text x="1011" y="424" text-anchor="middle" font-family="Bricolage Grotesque" font-size="28" font-weight="700" fill="#1A1A1A">12</text>
+<line x1="56" y1="454" x2="1136" y2="454" stroke="#E8E4DC" stroke-width="1"/>
+<text x="84" y="489" font-family="Inter" font-size="17.5" font-weight="600" fill="#1A1A1A">Bluetooth</text>
+<text x="84" y="510" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">phone calls, TV, streaming</text>
+<circle cx="511" cy="487" r="17" fill="none" stroke="#E8E4DC" stroke-width="2"/><path d="M 505 481 L 517 493 M 517 481 L 505 493" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round"/>
+<text x="511" y="519" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="600" fill="#6B6B6B">none</text>
+<circle cx="761" cy="487" r="17" fill="none" stroke="#E8E4DC" stroke-width="2"/><path d="M 755 481 L 767 493 M 767 481 L 755 493" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round"/>
+<text x="761" y="519" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="600" fill="#6B6B6B">none</text>
+<circle cx="1011" cy="487" r="17" fill="#FBD34A"/><path d="M 1004 487 l 4.5 5 l 9 -10" fill="none" stroke="#4C3205" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1011" y="519" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="500" fill="#3A3A3A">Phone + TV</text>
+<line x1="56" y1="532" x2="1136" y2="532" stroke="#E8E4DC" stroke-width="1"/>
+<text x="84" y="567" font-family="Inter" font-size="17.5" font-weight="600" fill="#1A1A1A">Rechargeable</text>
+<text x="84" y="588" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">charge it, or change batteries</text>
+<circle cx="511" cy="565" r="17" fill="none" stroke="#E8E4DC" stroke-width="2"/><path d="M 505 559 L 517 571 M 517 559 L 505 571" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round"/>
+<text x="511" y="597" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="600" fill="#6B6B6B">change batteries</text>
+<circle cx="761" cy="565" r="17" fill="#FBD34A"/><path d="M 754 565 l 4.5 5 l 9 -10" fill="none" stroke="#4C3205" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="761" y="597" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="500" fill="#3A3A3A">just charge it</text>
+<circle cx="1011" cy="565" r="17" fill="none" stroke="#E8E4DC" stroke-width="2"/><path d="M 1005 559 L 1017 571 M 1017 559 L 1005 571" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round"/>
+<text x="1011" y="597" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="600" fill="#6B6B6B">change batteries</text>
+<line x1="56" y1="610" x2="1136" y2="610" stroke="#E8E4DC" stroke-width="1"/>
+<text x="84" y="645" font-family="Inter" font-size="17.5" font-weight="600" fill="#1A1A1A">Warranty</text>
+<text x="84" y="666" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">years covered</text>
+<text x="511" y="657" text-anchor="middle" font-family="Inter" font-size="18" font-weight="600" fill="#3A3A3A">2 years</text>
+<text x="761" y="657" text-anchor="middle" font-family="Inter" font-size="18" font-weight="600" fill="#3A3A3A">2 years</text>
+<text x="1011" y="657" text-anchor="middle" font-family="Inter" font-size="18" font-weight="600" fill="#3A3A3A">2 years</text>
+<rect x="56" y="150" width="1080" height="538" rx="22" fill="none" stroke="#E8E4DC" stroke-width="1.5"/>
+<rect x="56" y="722" width="1080" height="152" rx="22" fill="#FAF8F4" stroke="#E8E4DC" stroke-width="1.5"/>
+<text x="84" y="764" font-family="Bricolage Grotesque" font-size="20" font-weight="700" fill="#1A1A1A">Synva's assessment</text>
+<text x="84" y="788" font-family="Inter" font-size="13" font-weight="400" fill="#6B6B6B">How these actually perform in our fittings.</text>
+<text x="84" y="808" font-family="Inter" font-size="13" font-weight="600" fill="#4C3205">Our own read, not a manufacturer spec.</text>
+<line x1="386" y1="738" x2="386" y2="858" stroke="#E8E4DC" stroke-width="1"/>
+<line x1="636" y1="738" x2="636" y2="858" stroke="#E8E4DC" stroke-width="1"/>
+<line x1="886" y1="738" x2="886" y2="858" stroke="#E8E4DC" stroke-width="1"/>
+<line x1="1136" y1="738" x2="1136" y2="858" stroke="#E8E4DC" stroke-width="1"/>
+<text x="511" y="806" text-anchor="middle" font-family="Bricolage Grotesque" font-size="21" font-weight="700" fill="#1A1A1A">Solid</text>
+<text x="761" y="806" text-anchor="middle" font-family="Bricolage Grotesque" font-size="21" font-weight="700" fill="#1A1A1A">Same as Terra</text>
+<text x="1011" y="806" text-anchor="middle" font-family="Bricolage Grotesque" font-size="21" font-weight="700" fill="#4C3205">Slightly better</text>
+</svg>

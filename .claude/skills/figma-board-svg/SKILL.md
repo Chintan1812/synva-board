@@ -30,6 +30,19 @@ Before generating anything, ask Chintan and wait for the answer:
 The board is a static prop he narrates over. Missing or hidden info is a real
 failure, so this question is mandatory even when the request seems obvious.
 
+## Rule 1b — BOARD COPY IS ENGLISH. No Hindi, ever. (HARD RULE)
+
+**Every word on a board is English** (Chintan, 2026-07-29). Not Hinglish, not
+transliterated Hindi, not a Hindi label with an English heading.
+
+Chintan **speaks** Hindi over the board. The board itself stays English so the same
+asset works as a thumbnail, a still, a website image and a slide, and so it does not
+have to be rebuilt for a Telugu or English cut. Keep the copy plain and short — it is
+read at a glance on camera, not studied.
+
+This applies to headings, column labels, row labels, sub-labels, chips, badges, verdicts
+and footnotes. If a generator ever emits a Hindi string, that is a bug.
+
 ## Rule 2 — NEVER hide or cut information
 
 - The board is **static**. There is **no "+N more", no lightbox, no accordion,
@@ -91,23 +104,80 @@ failure, so this question is mandatory even when the request seems obvious.
   Left-aligned text keeps the default `text-anchor="start"` / plain x. Do NOT
   approximate centring with `cx - halfGlyphWidth` — it drifts per digit/font
   (this was a real bug Chintan flagged, 2026-07-21).
+- **Vertical gaps go to a heading's CAP TOP, not its baseline.** `text()` places
+  text by baseline, and a 46px title's cap top is ~33px above it, so a gap that
+  looks generous in the numbers can render as a collision. A kicker pill ending
+  at y=96 above a title baseline at y=132 left **3px** and read as a design bug
+  (Chintan, 2026-07-29). Cap top = `baseline - fontSize * 0.72`; standard
+  kicker-to-title gap is **40px of clear air**. **Never hand-build a kicker +
+  title** — call `boardHeader()` from `lib/callout.mjs`, which owns this geometry
+  and hands back `contentT` for the body.
+- **VERTICAL centring inside a box is the same rule, and it is the one that gets
+  forgotten.** Text inside a row, chip, panel or card is centred on the box's own
+  centre `cy` with `dominant-baseline="central"` — `ltext()` for left-aligned,
+  `mtext()` for fully centred. Do **not** position it by adding a baseline offset
+  to the box top (`y = top + 34`, `cy + 24`): those are tuned against one font
+  size, so the moment a size or a box height changes the text drifts low and the
+  second line pushes out of the box. Chintan flagged exactly this on the callout
+  rows (2026-07-29).
+  - **One line** → `ltext/mtext` at `cy`. Nothing else.
+  - **Two lines** (a label plus a note) → centre the **block**, not the first
+    line: straddle `cy` symmetrically, e.g. `cy - 12` and `cy + 13`. A stack
+    hung off the top edge is the same bug wearing a different hat.
+  - Any marker, disc or icon sharing that row sits on the **same `cy`**, so it
+    stays aligned when the row grows.
+  - The lint cannot see this. It only shows up in the PNG, which is why rule 8
+    exists.
 
 ## Rule 6 — Feature comparisons: headline specs first, then LEVELS
 
 For any hearing-aid model comparison, the board has three tiers of content, in
 this order:
 
-**a) Consumer headline specs, pinned at the top (FROZEN with Chintan 2026-07-21).**
-These are what a buyer actually decides on, and they are what differs across a
-line, so they lead — before the deep feature matrix:
+**a) Consumer headline specs, pinned at the top — MANUFACTURER-VERIFIABLE ONLY
+(revised with Chintan 2026-07-28).**
+These are what a buyer decides on, and a viewer must be able to check every one of
+them on the manufacturer's own site. Pick the ~5 that actually **vary** across the
+line being compared (anything identical belongs in the common-traits band, 6b):
 
-1. **Price (MRP)**
+1. **Price** — see the pricing note below
 2. **Channels**
-3. **Clarity in noise** (speech-in-noise, the single biggest real-world reason
-   people buy) — from `hearing_aid_models.perf_speech_noise`, shown as a 1-5 level
-4. **Auto-adaptation** (how effortlessly it adjusts as you move) —
-   `perf_auto_adapt`, 1-5 level
-5. **Warranty**
+3. **Bluetooth** (`bluetooth_types`) — none / Universal / ASHA + MFi
+4. **Rechargeable** (`rechargeable`, `battery_types`) — Li-ion vs disposable is the
+   most tangible daily difference there is, and it is pure fact
+5. **Warranty** (`warranty_years`)
+
+Other legitimate headline rows when they vary: **platform** (`platforms` — e.g. T vs
+Lumity vs Infinio, a generation change, not a settings unlock), **technology level**,
+**fitting range** (`loss_ranges` / `fitting_min`-`fitting_max`), **form factor**.
+
+> ⚠️ **`perf_speech_quiet`, `perf_speech_noise` and `perf_auto_adapt` are NOT
+> manufacturer specs.** They are **Synva's own 1-5 clinical assessments** — Phonak and
+> Signia neither publish nor compare on them (Chintan, 2026-07-28). They must **never**
+> sit in the headline spec row or the feature matrix, where they read as vendor data.
+> They go in their own labelled panel — see 6d.
+
+**Pricing on a board: show MRP, per pair.** Label the row **MRP**. **Never put a
+discounted figure or the discount percentage on a board** (Chintan, 2026-07-29). The street
+price is Chintan's to say on camera; MRP is what the public synva.io catalogue shows, so
+board and website agree.
+
+⚠️ **`mrp × 2` is NOT the pair price when a Pair row exists.** The catalogue stores some
+models twice, once with `unit = 'Pcs'` and once with `unit = 'Pair'` — **86 models as of
+2026-07-29** — and in *every* case the Pair row is **cheaper** than twice the Pcs row
+(Phonak by ₹16,000-36,000, Signia by ₹7,000-30,000). That is a real **pair bundle price**,
+not a data error, so doubling overstates it. The rule:
+
+1. **Prefer the model's own `unit = 'Pair'` row.** Match on `model_name` + `brand_id`.
+2. **Only fall back to `mrp × 2`** when no Pair row exists, and say so on the board where
+   the number is doing real work.
+3. **Never compare a doubled price against a bundle price** — that silently flatters the
+   bundled side. Either put both models on the same basis, or show **both columns**
+   (single and pair) and label which pair figure is a bundle. `dontbuy` does the latter,
+   because Terra+ RIC-312 has no bundle and Terra+ RIC-R does.
+
+Found while building `dontbuy`, where the two framings gave ₹20,000 and ₹40,000 for the
+same comparison.
 
 **b) Common traits, stated ONCE in a highlighted band** ("the comment section").
 Anything identical across every model (rechargeable, Bluetooth / phone streaming
@@ -119,6 +189,22 @@ already covers it.
 
 **c) The full categorised feature matrix** — every feature, real catalogue names,
 grouped by category (rules 2 + 3).
+
+**d) Synva's assessment — its own labelled panel, never mixed in.**
+Chintan's `perf_*` ratings are the one thing no competitor channel has: a practising
+audiologist's read of how these actually perform in the chair. That is worth showing —
+but only where a viewer cannot mistake it for a manufacturer number.
+
+- A **separate block below the headline band**, with an explicit title along the lines
+  of **"Synva's assessment"** and a one-line subtitle: *our own 1-5 read, not a
+  manufacturer spec*.
+- Rows: clarity in noise (`perf_speech_noise`), auto-adaptation (`perf_auto_adapt`),
+  speech in quiet (`perf_speech_quiet`) — whichever are relevant and vary.
+- Same disc treatment as the matrix (digit in a single Synva-yellow disc, rule below),
+  so it reads as part of the board — but visually fenced: its own bordered panel on
+  `paper`, never sharing a band with manufacturer rows.
+- **It is never the basis of the comparison.** The argument is made on manufacturer
+  facts; this panel is the expert's overlay on top of it.
 
 **SHOW THE PERFORMANCE LEVEL, not just presence.** A feature can be *present at a
 different level* on different tiers (`model_features.performance_score`, 1-5) —

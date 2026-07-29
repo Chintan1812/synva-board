@@ -1,0 +1,546 @@
+{
+  "slug": "phonak-50k-vs-1lakh",
+  "title": "Buying a Phonak Hearing Aid? Be SMART About ₹50,000 vs ₹1,00,000",
+  "pattern": "series breakdown x lifestyle framework",
+  "generated": "2026-07-29",
+  "canvas": {
+    "colPitch": 1600,
+    "rowPitch": 900
+  },
+  "nodes": [
+    {
+      "id": "entry",
+      "name": "01-hook",
+      "kind": "root",
+      "board": "hook-specs",
+      "beat": "Hook + bonus tease",
+      "command": "npm run board:phonak-hook",
+      "must_show": [
+        "Price (pair, after discount)",
+        "Channels",
+        "Bluetooth",
+        "Rechargeable",
+        "Warranty",
+        "BLUETOOTH=none must dominate the ₹50,000 column",
+        "nothing extra on the board — the bonus tease is spoken, not shown"
+      ],
+      "data": "supabase:hearing_aid_models",
+      "talk": [
+        "Deliver the frozen Hindi hook verbatim (02-hook.md)",
+        "Point at the Bluetooth cell on 'woh unke 50,000 wale device mein hai hi nahi'",
+        "The frozen hook now ends with the bonus tease: 'aur ek chhota sa tool, jo 6 sawaal mein aapko aapka jawab de dega'"
+      ],
+      "veil": false,
+      "phase": 2,
+      "atPercent": 0,
+      "col": 0,
+      "row": 0,
+      "x": 0,
+      "y": 0,
+      "blocked": "Bonus tease is inside the hook — Knowledge Hub page + gate must be live before this is recorded"
+    },
+    {
+      "id": "trust",
+      "name": "01b-trust",
+      "kind": "leaf",
+      "board": "title-banner",
+      "beat": "Sprint to Trust (Checkpoint 2)",
+      "command": "npm run board:title-banner",
+      "must_show": [
+        "Chintan Bhayani, Founder, Synva Hearing",
+        "the title as the kicker"
+      ],
+      "data": "none",
+      "talk": [
+        "Namaskaar, mera naam hai Chintan Bhayani, Founder of Synva Hearing",
+        "Pichle 2 saal mein 1000+ logon ko hearing loss, lifestyle aur budget ke hisaab se sahi hearing aid lene mein madad ki hai",
+        "CHECK: earlier scripts say 500+ over the same 2-year window — confirm the number before recording"
+      ],
+      "veil": false,
+      "phase": 4,
+      "atPercent": 4,
+      "col": 1,
+      "row": 1,
+      "x": 1600,
+      "y": 900
+    },
+    {
+      "id": "plan",
+      "name": "02-chapters",
+      "kind": "leaf",
+      "board": "chapters",
+      "beat": "Plan of attack",
+      "command": "npm run board:chapters",
+      "must_show": [
+        "3 chapters"
+      ],
+      "data": "none",
+      "talk": [
+        "Teen cheezein, phir end mein tool",
+        "Bonus already teased in the hook — do not repeat it here, just reference it"
+      ],
+      "veil": false,
+      "phase": 4,
+      "atPercent": 8,
+      "col": 2,
+      "row": 0,
+      "x": 3200,
+      "y": 0
+    },
+    {
+      "id": "common",
+      "name": "03-same-ear",
+      "kind": "branch",
+      "board": "common-band",
+      "beat": "Common traits, stated once",
+      "command": "npm run board:phonak-common",
+      "must_show": [
+        "fitting range 0-110 dB moderate to profound",
+        "2-year warranty on everything",
+        "prominent filled band, not a footnote"
+      ],
+      "data": "supabase:loss_ranges,warranty_years",
+      "talk": [
+        "Not one rupee of the extra ₹40,000 buys more hearing",
+        "Same fitting range, same warranty. So what IS different?"
+      ],
+      "veil": false,
+      "phase": 3,
+      "atPercent": 12,
+      "col": 3,
+      "row": 0,
+      "x": 4800,
+      "y": 0
+    },
+    {
+      "id": "framework",
+      "name": "04-framework",
+      "kind": "leaf",
+      "board": "framework",
+      "beat": "The 3-step, Steps 2+3",
+      "command": "npm run board:framework",
+      "must_show": [
+        "Loss->Type dimmed as settled",
+        "Lifestyle->Features highlighted",
+        "Budget->last highlighted"
+      ],
+      "data": "none",
+      "talk": [
+        "This video is Steps 2 and 3 colliding",
+        "Budget is the last filter, never the first"
+      ],
+      "veil": false,
+      "phase": 4,
+      "atPercent": 18,
+      "col": 3,
+      "row": 1,
+      "x": 4800,
+      "y": 900
+    },
+    {
+      "id": "mrpnote",
+      "name": "04b-mrp-note",
+      "kind": "aside",
+      "board": "callout-card",
+      "beat": "Pricing disclaimer, said ONCE",
+      "command": "npm run board:phonak-mrp-note",
+      "must_show": [
+        "Every price here is MRP",
+        "what you pay is lower, varies by clinic",
+        "ask your local clinic",
+        "ask us as well — the Synva nudge, an invitation to compare, never a claim to be cheapest"
+      ],
+      "data": "none",
+      "talk": [
+        "Har price jo aap dekhoge, woh MRP hai",
+        "Aap jo actually doge woh kam hoga, aur har clinic alag discount deta hai",
+        "Apne clinic se poocho. Aur humse bhi pooch lo, hum bata denge exactly kitna padega",
+        "Say it once here. Do NOT repeat it on every price board."
+      ],
+      "veil": false,
+      "phase": 3,
+      "atPercent": 22,
+      "col": 3,
+      "row": -1,
+      "x": 4800,
+      "y": -900
+    },
+    {
+      "id": "band50",
+      "name": "05-band-50k",
+      "kind": "branch",
+      "board": "comparison-matrix",
+      "beat": "Per-model, ₹50,000",
+      "command": "npm run board:phonak-band50",
+      "must_show": [
+        "Terra / Orion C&G 50 / Sirion Connect 75 at ~₹46,200-₹49,500 pair",
+        "Channels",
+        "Bluetooth",
+        "Rechargeable",
+        "Warranty",
+        "Orion marked BEST SELLER",
+        "Synva's assessment in its own bordered panel (rule 6d)"
+      ],
+      "data": "supabase:hearing_aid_models",
+      "talk": [
+        "Same money, three devices",
+        "Terra: 8 channels, no Bluetooth, no rechargeable",
+        "Orion 50: rechargeable, and what actually sells most here",
+        "Sirion 75: 12 channels and Bluetooth, but batteries",
+        "Terra and Orion perform similarly; Sirion a little better"
+      ],
+      "veil": true,
+      "phase": 1,
+      "atPercent": 26,
+      "col": 4,
+      "row": 0,
+      "x": 6400,
+      "y": 0
+    },
+    {
+      "id": "turn50",
+      "name": "06-the-turn",
+      "kind": "aside",
+      "board": "callout-card",
+      "beat": "THE TURN",
+      "command": "npm run board:phonak-turn50",
+      "must_show": [
+        "₹50,000 pe Phonak aapko dono mein se ek bhi nahi deta",
+        "Orion -> rechargeable tick",
+        "Sirion -> Bluetooth tick",
+        "Terra -> two crosses"
+      ],
+      "data": "none",
+      "talk": [
+        "Rechargeable chahiye? Phonak nahi de sakta iss price pe",
+        "Bluetooth chahiye? Woh bhi nahi",
+        "Isiliye ₹50,000 pe hum honestly Signia recommend karte hai",
+        "Say it once. Do not linger, do not compare further."
+      ],
+      "veil": true,
+      "phase": 2,
+      "atPercent": 33,
+      "col": 5,
+      "row": -1,
+      "x": 8000,
+      "y": -900
+    },
+    {
+      "id": "band1l",
+      "name": "07-band-1lakh",
+      "kind": "branch",
+      "board": "comparison-matrix",
+      "beat": "Per-model, ₹1,00,000",
+      "command": "npm run board:phonak-band1l",
+      "must_show": [
+        "all 7, grouped by platform: Lumity block then Infinio block",
+        "COMMON band stated once: 12 channels, Universal Bluetooth, 2 year warranty",
+        "NOT in the common band: fitting range — Naida L30-PR is 90 dB and both Virtos are null",
+        "Audeo I30-R Go anchored as BEST SELLER",
+        "Audeo L30-R flagged BUDGET OPTION",
+        "Naida L30-SP EXCLUDED, rarely stocked in India"
+      ],
+      "data": "supabase:hearing_aid_models",
+      "talk": [
+        "At this price the choice becomes the body, not performance",
+        "Audeo I30-R Go is the one that sells most — same aid as the I30-R, pocket charger instead of the desk one",
+        "L30 is the Lumity fallback if budget is tight",
+        "Virto for custom, Naida for power"
+      ],
+      "veil": true,
+      "phase": 1,
+      "atPercent": 45,
+      "col": 6,
+      "row": 0,
+      "x": 9600,
+      "y": 0
+    },
+    {
+      "id": "delta",
+      "name": "08-what-40k-buys",
+      "kind": "branch",
+      "board": "ladder",
+      "beat": "Additive delta + honest tier-delta",
+      "command": "npm run board:phonak-delta",
+      "must_show": [
+        "Terra+ -> ₹1,00,000 additive only",
+        "T -> Lumity -> Infinio",
+        "full AutoSense not Limited",
+        "+ Roger",
+        "+ WindBlock",
+        "the five Lumity->Infinio upgrades"
+      ],
+      "data": "supabase:model_features,feature_library",
+      "talk": [
+        "Terra -> Terra+ is MARGINAL: Bluetooth, 2 channels, SoundRecover2",
+        "Terra+ -> ₹1,00,000 is MEANINGFUL: on Terra+ the AutoSense is limited and I can barely tune the environmental programs in the fitting software",
+        "Roger is the meetings feature and does not exist below this tier"
+      ],
+      "veil": false,
+      "phase": 3,
+      "atPercent": 58,
+      "col": 6,
+      "row": 1,
+      "x": 9600,
+      "y": 900
+    },
+    {
+      "id": "cheezein",
+      "name": "09-do-cheezein",
+      "kind": "aside",
+      "board": "callout-card",
+      "beat": "The honest limitation",
+      "command": "npm run board:phonak-cheezein",
+      "must_show": [
+        "Panel 1: Mujhe behind-the-ear chahiye -> no BTE on Infinio at all; profound + rechargeable does not exist",
+        "Panel 2: Mujhe invisible chahiye aur rechargeable bhi -> rechargeable custom stops at ITC"
+      ],
+      "data": "supabase:hearing_aid_models",
+      "talk": [
+        "Do cheezein jo Phonak aaj kisi bhi price pe nahi de sakta",
+        "NEVER say 'Phonak has no rechargeable BTE' — Naida L30-PR exists",
+        "Signia has both. One sentence, then move on."
+      ],
+      "veil": true,
+      "phase": 2,
+      "atPercent": 66,
+      "col": 7,
+      "row": -1,
+      "x": 11200,
+      "y": -900
+    },
+    {
+      "id": "bonus",
+      "name": "10-bonus-tool",
+      "kind": "bonus",
+      "board": "bonus-card",
+      "beat": "Bonus delivered",
+      "command": "npm run board:phonak-bonus",
+      "must_show": [
+        "the six questions as short lines",
+        "URL as its own editable text node",
+        "what they get back: their band + their models"
+      ],
+      "data": "none",
+      "talk": [
+        "Shuru mein bola tha, yeh raha",
+        "6 sawaal, band bhi milega aur models bhi",
+        "Link description mein, sabse upar"
+      ],
+      "veil": false,
+      "phase": 3,
+      "atPercent": 70,
+      "col": 7,
+      "row": 0,
+      "x": 11200,
+      "y": 0,
+      "blocked": "Knowledge Hub page + gate must be live before recording"
+    },
+    {
+      "id": "dontbuy",
+      "name": "11-dont-buy",
+      "kind": "aside",
+      "board": "callout-card",
+      "beat": "Honest limitation",
+      "command": "npm run board:phonak-dontbuy",
+      "must_show": [
+        "Terra+ RIC-R ₹72,800-₹78,000 beside Audéo L30-312 ₹82,600-₹88,500",
+        "struck-through 'rechargeable Terra' with the reason"
+      ],
+      "data": "supabase:hearing_aid_models",
+      "talk": [
+        "Yeh model hum bechte hai, par logo ko lene se rokte hai",
+        "Terra platform pe rechargeable ke liye itna pay karna galat hai",
+        "Thoda aur do, aur poora platform badal jata hai"
+      ],
+      "veil": true,
+      "phase": 3,
+      "atPercent": 78,
+      "col": 8,
+      "row": -1,
+      "x": 12800,
+      "y": -900
+    },
+    {
+      "id": "lifestyle",
+      "name": "12-lifestyle-map",
+      "kind": "exit",
+      "board": "lifestyle-tiers",
+      "beat": "Loop close + tier map",
+      "command": "npm run board:phonak-lifestyle",
+      "must_show": [
+        "L1 Calm & Comfortable",
+        "L2 Social & Fulfilling",
+        "L3 Active Professional",
+        "each mapped to a band and a named model",
+        "site Essential/Good/Premium colours"
+      ],
+      "data": "supabase:lifestyle_profiles,hearing_aid_models",
+      "talk": [
+        "L1: ₹50,000 is MORE than enough. Orion.",
+        "L2: ₹50,000 is a very good start; ₹1,00,000 if you want more than enough",
+        "L3: ₹1,00,000 is a sensible investment; ₹50,000 will not carry you through meetings",
+        "The honest don't-overspend beat lands here"
+      ],
+      "veil": true,
+      "phase": 2,
+      "atPercent": 85,
+      "col": 8,
+      "row": 0,
+      "x": 12800,
+      "y": 0
+    },
+    {
+      "id": "cta",
+      "name": "13-cta",
+      "kind": "exit",
+      "board": "cta-pill",
+      "beat": "Consultation pivot",
+      "command": "npm run board:cta",
+      "must_show": [
+        "online consultation all-India first",
+        "Hyderabad Experience Center second",
+        "synva.io as its own text node"
+      ],
+      "data": "none",
+      "talk": [
+        "Confusion is normal",
+        "Our audiologists run this same framework on your audiogram"
+      ],
+      "veil": false,
+      "phase": 4,
+      "atPercent": 95,
+      "col": 9,
+      "row": 0,
+      "x": 14400,
+      "y": 0
+    }
+  ],
+  "edges": [
+    {
+      "from": "trust",
+      "to": "plan",
+      "kind": "leads-to",
+      "label": "",
+      "rehook": null
+    },
+    {
+      "from": "entry",
+      "to": "trust",
+      "kind": "leads-to",
+      "label": "straight after the hook",
+      "rehook": null
+    },
+    {
+      "from": "plan",
+      "to": "common",
+      "kind": "leads-to",
+      "label": "",
+      "rehook": null
+    },
+    {
+      "from": "common",
+      "to": "framework",
+      "kind": "supports",
+      "label": "why 'same ear' matters",
+      "rehook": null
+    },
+    {
+      "from": "common",
+      "to": "mrpnote",
+      "kind": "leads-to",
+      "label": "",
+      "rehook": null
+    },
+    {
+      "from": "mrpnote",
+      "to": "band50",
+      "kind": "leads-to",
+      "label": "",
+      "rehook": null
+    },
+    {
+      "from": "band50",
+      "to": "turn50",
+      "kind": "contrasts",
+      "label": "Par yahan ek problem hai",
+      "rehook": null
+    },
+    {
+      "from": "turn50",
+      "to": "band1l",
+      "kind": "leads-to",
+      "label": "ab dekhte hai ₹1,00,000 pe",
+      "rehook": "contrarian flip"
+    },
+    {
+      "from": "band1l",
+      "to": "delta",
+      "kind": "supports",
+      "label": "",
+      "rehook": null
+    },
+    {
+      "from": "delta",
+      "to": "cheezein",
+      "kind": "contrasts",
+      "label": "par do cheezein aisi hai",
+      "rehook": "new loop plant"
+    },
+    {
+      "from": "cheezein",
+      "to": "entry",
+      "kind": "closes-loop",
+      "label": "closes L2: two things at any price",
+      "rehook": null
+    },
+    {
+      "from": "cheezein",
+      "to": "bonus",
+      "kind": "leads-to",
+      "label": "",
+      "rehook": null
+    },
+    {
+      "from": "bonus",
+      "to": "dontbuy",
+      "kind": "leads-to",
+      "label": "",
+      "rehook": null
+    },
+    {
+      "from": "dontbuy",
+      "to": "entry",
+      "kind": "closes-loop",
+      "label": "closes L1: the one we don't sell you",
+      "rehook": null
+    },
+    {
+      "from": "dontbuy",
+      "to": "lifestyle",
+      "kind": "leads-to",
+      "label": "",
+      "rehook": null
+    },
+    {
+      "from": "lifestyle",
+      "to": "cta",
+      "kind": "leads-to",
+      "label": "",
+      "rehook": null
+    }
+  ],
+  "bonus": {
+    "what": "Self-check: (1) Kya Phonak aapke liye sahi hai? — answer can be NO. (2) Agar haan, konse devices. Inputs: hearing loss + lifestyle.",
+    "teasedOn": "entry",
+    "deliveredOn": "bonus",
+    "atPercent": 70,
+    "url": "synva.io/knowledge-hub/<slug>",
+    "gated": true,
+    "gateNote": "questions public, verdict gated on name + mobile with unticked WhatsApp consent (videos/LEAD-CAPTURE.md)",
+    "producible": false,
+    "blocker": "Knowledge Hub page + gate not built yet — do NOT record the tease or the delivery until live",
+    "teaseNote": "Moved into the hook 2026-07-29. Because the tease is in the first 30s, the HOOK cannot be recorded until the page is live — this blocks the whole shoot, not one beat.",
+    "whyItWorks": "The honest NO is the differentiator, and it maps onto the two cheezein in §4a — the tool reproduces the video's honesty mechanically."
+  }
+}

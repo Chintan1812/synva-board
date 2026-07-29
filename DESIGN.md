@@ -1,6 +1,6 @@
 # Synva Boards — Design Spec
 
-> **Version: 2.0 — 2026-07-27** · visual source of truth for the **SVG boards
+> **Version: 2.2 — 2026-07-29** · visual source of truth for the **SVG boards
 > ONLY**. Functional/architectural context is in [CLAUDE.md](./CLAUDE.md); the
 > operational procedure is the
 > [`figma-board-svg` skill](./.claude/skills/figma-board-svg/SKILL.md).
@@ -49,6 +49,32 @@ orange, each with light/dark) exist but reach for one only with a clear reason.
 finish colour on a swatch (`colors.hex_primary/secondary`), never a decorative
 invented colour.
 
+## Board copy is ENGLISH — hard rule
+Every word on a board is **English** (Chintan, 2026-07-29). Chintan speaks Hindi over it;
+the prop stays English so the same asset serves a thumbnail, a still, the website and a
+non-Hindi cut without a rebuild. Applies to headings, labels, sub-labels, chips, badges
+and footnotes alike.
+
+**Prices on boards are MRP, per pair.** Never a discounted figure, never the discount %.
+Take the pair figure from the model's own `unit = 'Pair'` row where one exists — **`mrp × 2`
+overstates it**, because a Pair row is a real bundle price and is always cheaper than twice
+the single (86 models, verified 2026-07-29). Never set a doubled price beside a bundle
+price; show both columns and label them instead. Full rule in the skill.
+
+**Images on boards are the REAL Phonak renders, embedded, 1:1, black then beige**
+(Chintan, 2026-07-29). `renderDataUri()` in [`lib/phonak-renders.mjs`](./lib/phonak-renders.mjs)
+resolves a catalogue model to a render from the Phonak Target library;
+`imageSlot({ uri, uriScale })` places it in a square with the label and colour **below**
+the picture area, never inside it. They belong only on boards where the **shape is the
+argument** (`brand/form-factors`, `cheezein`, `band1l`) — consistency is by board *type*,
+so argument boards stay text and the mix reads as intentional.
+
+⚠️ **Always pass `uriScale`.** Every render is shot at its own zoom, so unscaled they all
+fill their frames and **a CIC renders larger than a RIC** — on boards whose whole point is
+that smaller means less visible. `FORM_FACTOR_SCALE` in `lib/phonak-renders.mjs` holds the
+approximate real ratios; a board that compares bodies must use them, and should say
+"sized to approximate real relative scale" in its footnote.
+
 ## Type
 - **Bricolage Grotesque** — display / headings / big numbers.
 - **Inter** — body / labels / cell values.
@@ -72,6 +98,24 @@ The board is only good if it imports cleanly through `figma-plugin/`:
   - left-aligned text → default `text-anchor="start"`, plain x.
   Do **not** approximate with `cx - halfGlyphWidth` — it drifts per digit/font
   (a real bug Chintan flagged).
+- **Vertical gaps are measured to a heading's CAP TOP, never to its baseline.**
+  `text()` positions by baseline, so "put the title at y=132" leaves far less air
+  than it looks like on paper: a 46px title's cap top sits ~33px *above* its
+  baseline. A kicker pill ending at y=96 with a title baseline at 132 gives **3px
+  of gap** and reads as a collision (Chintan flagged exactly this, 2026-07-29).
+  Cap top = `baseline - fontSize * 0.72`. **Standard kicker-to-title gap: 40px of
+  clear air.** Do not hand-build a kicker + title: use **`boardHeader()`** from
+  [`lib/callout.mjs`](./lib/callout.mjs), which owns this geometry and returns
+  `contentT`, the first y the body may use.
+- **Vertical centring inside a box follows the same rule** — and it is the half
+  that gets forgotten. Text in a row, chip, panel or card centres on the box's own
+  `cy` via `dominant-baseline="central"` (`ltext()` left-aligned, `mtext()` fully
+  centred). Never hang it off the top edge with a tuned baseline offset
+  (`top + 34`, `cy + 24`): that is calibrated to one font size, so it slides low
+  the moment a size or box height changes. **Two lines centre as a block**, not
+  from the first line — straddle `cy` (`cy - 12` / `cy + 13`), and put any marker
+  or icon on the same `cy`. Chintan flagged this on the callout rows, where the
+  note had drifted to the box edge (2026-07-29).
 
 ## Board layout language (mirrors the website compare-matrix idiom)
 - White rounded cards on a paper background; yellow accents; category headers;
@@ -82,10 +126,18 @@ The board is only good if it imports cleanly through `figma-plugin/`:
 - **Hairlines + category bands = border** (`#E8E4DC`).
 
 ### Comparison board anatomy (headline-specs-first)
-Ordered top to bottom (frozen with Chintan 2026-07-21):
-1. **Headline specs band, pinned at top** — Price · Channels · Clarity in noise
-   (`perf_speech_noise` 1-5) · Auto-adaptation (`perf_auto_adapt` 1-5) · Warranty.
-   These are what a buyer decides on and what differs across a line, so they lead.
+Ordered top to bottom (revised with Chintan 2026-07-28):
+1. **Headline specs band, pinned at top — MANUFACTURER-VERIFIABLE ONLY.** **MRP (per
+   pair; never a discounted figure, never the discount %)** · Channels · Bluetooth ·
+   Rechargeable · Warranty — or whichever ~5 manufacturer specs actually *vary* across
+   the line (platform, technology level, fitting range and form factor are all fair game).
+   A viewer must be able to check every row on the manufacturer's own site.
+   ⚠️ **`perf_speech_noise` / `perf_auto_adapt` / `perf_speech_quiet` are Synva's own
+   clinical ratings, not vendor specs — they are barred from this band.** See 1b.
+1b. **"Synva's assessment" panel, directly below the headline band** — its own bordered
+   block on `paper`, titled explicitly, subtitled *our own 1-5 read, not a manufacturer
+   spec*. Carries the `perf_*` rows using the same yellow rating discs. Visually fenced so
+   it can never be mistaken for vendor data, and never the basis of the comparison.
 2. **Common-traits band** — anything identical across every model (rechargeable,
    Bluetooth to iPhone + Android, form factor, fitting range + receivers, app +
    remote care) stated **once** in a prominent filled yellow-light strip, never
@@ -208,6 +260,9 @@ the same change — never in the website's own `DESIGN.md`. Architecture/pipelin
 ## Changelog
 | Version | Date | Change |
 | --- | --- | --- |
+| 2.2 | 2026-07-29 | **Boards carry the real device now.** Chintan pointed at the local Phonak render library (Admin app, `data/phonak_images`: 481 deduplicated 600×600 PNGs from Phonak Target 11.2.3) and asked for the pictures embedded rather than placeheld, **1:1**, **black or beige, whichever the model actually offers**. New [`lib/phonak-renders.mjs`](./lib/phonak-renders.mjs) resolves a catalogue model to a render and returns a PNG data URI. Three things it exists to get right, each of which silently produced a wrong board first: (1) `used_by_models` spells it **"Naída"** and Supabase writes **"Audeo I 30-R"** with a space, so matching is accent- and space-folded; (2) Phonak **reuses housings**, and the library labels a shared render by its *flagship* line, so Terra+ RIC-R correctly resolves to an `Audeo-Lumity-R` file and Naída L30-UP to a `Naida-Lumity-Link-L` one — trust `used_by_models`, never the filename, or you conclude a model has no black render when it plainly has one; (3) **`uriScale`**, because every render is shot at its own zoom and unscaled the **CIC came out bigger than the RIC** on the very board arguing that smaller means less visible. Applied to `brand/form-factors`, `cheezein`, `band1l`; `dontbuy` stays text (both units are the same RIC, and the argument is the battery). |
+| 2.1 | 2026-07-29 | **Three rules recorded from Chintan's review of the Phonak boards, all of them things `npm run verify` cannot see.** (1) **Board copy is ENGLISH, hard rule** (new section above) — he speaks Hindi over the board, the prop stays English so one asset serves the thumbnail, the still, the website and a non-Hindi cut. (2) **Vertical centring is real centring too** — the existing rule only spelled out the horizontal half, so the callout rows were built with baseline offsets hung off the box top (`cy + 24`) and the second line drifted to the box edge. Now stated explicitly: centre on the box's own `cy` via `dominant-baseline="central"`, **centre two lines as a block** straddling `cy` rather than from the first line, and put any marker on the same `cy`. (3) **Vertical gaps are measured to a heading's CAP TOP, never its baseline** — the kicker pill sat 3px off the title and read as a collision, because `TITLE_T = 132` was reasoned about as if 132 were the top of the text when it is the baseline. Standard kicker-to-title gap is now **40px of clear air**, and the header is no longer hand-built anywhere: **`boardHeader()`** in `lib/callout.mjs` owns the geometry and returns `contentT`. The two callout modes had already drifted apart by duplicating that header, which is what let one of them be wrong. |
+| 2.0 | 2026-07-27 | **Carried into the standalone repo** with the board workflow (see CLAUDE.md 2.0). Token references now point at `lib/tokens.mjs` in this repo rather than the website's `globals.css`; the row was missing from this table until 2.1. |
 | 1.2 | 2026-07-22 | **Recorded the budget-level colour code** (Essential = blue / Good to have = yellow / Premium = purple, from the site's `PICK_LEVEL_BADGE`, with the ₹/₹₹/₹₹₹ cue — distinct from the framework's step coding), that **raster illustrations may be embedded** as PNG `<image>` (via the updated plugin), and the **lifestyle / recommendation board** pattern (three budget-level columns, model cards or video-thumbnail placeholders, conditional note-boxes, vertically-centred content). |
 | 1.1 | 2026-07-21 | **Recorded that boards are FREE-SIZE** (Chintan: no fixed video-frame constraint — size to content, scale/place in Figma) as a new "Canvas & size" section, and added the **Chapters / agenda board** pattern (reusable `make-chapters.mjs` generator: icon-tile + big-number tiles, adaptive for 2–3 chapters). |
 | 1.0 | 2026-07-21 | **Created the board visual spec** as part of splitting the Figma-board workflow off from the website docs (Chintan's ask). Records the board palette (strictly website tokens, yellow-forward, one non-token exception for real finish colours), type (Bricolage/Inter, single font-family), import-safe constraints (flat fills only, vector icons, real SVG centring), the headline-specs-first comparison anatomy, the value-not-shade rating discs, and the hook-board format. References the website tokens rather than duplicating them. Uncommitted (root rule 8). |

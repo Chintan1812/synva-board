@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2212" height="1140" viewBox="0 0 2212 1140">
+<rect x="0" y="0" width="2212" height="1140" fill="#FAF8F4"/>
+<rect x="56" y="60" width="333.6" height="34" rx="17" fill="#FFECBB"/>
+<text x="222.8" y="77" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="12" font-weight="700" fill="#4C3205">CANVAS LAYOUT · NOT A BOARD TO TALK OVER</text>
+<text x="56" y="158" font-family="Bricolage Grotesque" font-size="46" font-weight="700" fill="#1A1A1A">How the boards connect</text>
+<rect x="56" y="174" width="72" height="7" rx="3.5" fill="#FBD34A"/>
+<text x="56" y="208" font-family="Inter" font-size="18" font-weight="400" fill="#4F4F4F">Left to right is the walk. Above the line is an aside, below it is a prop that backs the node.</text>
+<line x1="76" y1="570" x2="2136" y2="570" stroke="#E8E4DC" stroke-width="1.5"/>
+<path d="M 371 708 L 371 668 L 581 668 L 581 628" fill="none" stroke="#FBD34A" stroke-width="3.5"/>
+<path d="M 161 628 L 161 668 L 371 668 L 371 708" fill="none" stroke="#FBD34A" stroke-width="3.5"/>
+<line x1="670" y1="570" x2="702" y2="570" stroke="#FBD34A" stroke-width="3.5"/>
+<path d="M 681 564 L 691 570 L 681 576" fill="none" stroke="#FBD34A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 791 628 L 791 668 L 791 668 L 791 708" fill="none" stroke="#E8E4DC" stroke-width="2" stroke-dasharray="8 7"/>
+<path d="M 791 512 L 791 472 L 791 472 L 791 432" fill="none" stroke="#FBD34A" stroke-width="3.5"/>
+<path d="M 791 432 L 791 472 L 1001 472 L 1001 512" fill="none" stroke="#FBD34A" stroke-width="3.5"/>
+<path d="M 1001 512 L 1001 472 L 1211 472 L 1211 432" fill="none" stroke="#FBD34A" stroke-width="3.5"/>
+<path d="M 1211 432 L 1211 472 L 1421 472 L 1421 512" fill="none" stroke="#FBD34A" stroke-width="3.5"/>
+<path d="M 1421 628 L 1421 668 L 1421 668 L 1421 708" fill="none" stroke="#E8E4DC" stroke-width="2" stroke-dasharray="8 7"/>
+<path d="M 1421 708 L 1421 570 L 1631 570 L 1631 432" fill="none" stroke="#FBD34A" stroke-width="3.5"/>
+<path d="M 1631 316 L 1631 258 L 161 258 L 161 512" fill="none" stroke="#6B6B6B" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/>
+<path d="M 1631 432 L 1631 472 L 1631 472 L 1631 512" fill="none" stroke="#FBD34A" stroke-width="3.5"/>
+<path d="M 1631 512 L 1631 472 L 1841 472 L 1841 432" fill="none" stroke="#FBD34A" stroke-width="3.5"/>
+<path d="M 1841 316 L 1841 258 L 161 258 L 161 512" fill="none" stroke="#6B6B6B" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/>
+<path d="M 1841 432 L 1841 472 L 1841 472 L 1841 512" fill="none" stroke="#FBD34A" stroke-width="3.5"/>
+<line x1="1930" y1="570" x2="1962" y2="570" stroke="#FBD34A" stroke-width="3.5"/>
+<path d="M 1941 564 L 1951 570 L 1941 576" fill="none" stroke="#FBD34A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="72" y="512" width="178" height="116" rx="18" fill="#FBD34A" stroke="#4C3205" stroke-width="2"/>
+<text x="161" y="542" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#4C3205">0%</text>
+<text x="161" y="570" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#4C3205">The hook</text>
+<text x="161" y="612" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#4C3205">entry</text>
+<rect x="282" y="708" width="178" height="116" rx="18" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="2"/>
+<text x="371" y="738" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#3A3A3A">4%</text>
+<text x="371" y="766" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#3A3A3A">Who I am</text>
+<text x="371" y="808" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">trust</text>
+<rect x="492" y="512" width="178" height="116" rx="18" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="2"/>
+<text x="581" y="542" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#3A3A3A">8%</text>
+<text x="581" y="570" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#3A3A3A">What you get</text>
+<text x="581" y="612" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">plan</text>
+<rect x="702" y="512" width="178" height="116" rx="18" fill="#FFECBB" stroke="#FBD34A" stroke-width="2"/>
+<text x="791" y="542" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#4C3205">12%</text>
+<text x="791" y="570" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#4C3205">Same ears</text>
+<text x="791" y="612" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">common</text>
+<rect x="702" y="708" width="178" height="116" rx="18" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="2"/>
+<text x="791" y="738" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#3A3A3A">18%</text>
+<text x="791" y="766" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#3A3A3A">The 3 steps</text>
+<text x="791" y="808" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">framework</text>
+<rect x="702" y="316" width="178" height="116" rx="18" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="2"/>
+<text x="791" y="346" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#1A1A1A">22%</text>
+<text x="791" y="374" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#1A1A1A">Prices are MRP</text>
+<text x="791" y="416" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">mrpnote</text>
+<rect x="912" y="512" width="178" height="116" rx="18" fill="#FFECBB" stroke="#FBD34A" stroke-width="2"/>
+<text x="1001" y="542" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#4C3205">26%</text>
+<text x="1001" y="570" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#4C3205">₹50,000</text>
+<text x="1001" y="612" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">band50</text>
+<circle cx="1072" cy="530" r="8" fill="#4C3205"/>
+<text x="1072" y="530" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="9" font-weight="700" fill="#FFECBB">V</text>
+<rect x="1122" y="316" width="178" height="116" rx="18" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="2"/>
+<text x="1211" y="346" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#1A1A1A">33%</text>
+<text x="1211" y="374" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#1A1A1A">THE TURN</text>
+<text x="1211" y="416" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">turn50</text>
+<circle cx="1282" cy="334" r="8" fill="#4C3205"/>
+<text x="1282" y="334" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="9" font-weight="700" fill="#FFECBB">V</text>
+<rect x="1332" y="512" width="178" height="116" rx="18" fill="#FFECBB" stroke="#FBD34A" stroke-width="2"/>
+<text x="1421" y="542" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#4C3205">45%</text>
+<text x="1421" y="570" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#4C3205">₹1,00,000</text>
+<text x="1421" y="612" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">band1l</text>
+<circle cx="1492" cy="530" r="8" fill="#4C3205"/>
+<text x="1492" y="530" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="9" font-weight="700" fill="#FFECBB">V</text>
+<rect x="1332" y="708" width="178" height="116" rx="18" fill="#FFECBB" stroke="#FBD34A" stroke-width="2"/>
+<text x="1421" y="738" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#4C3205">58%</text>
+<text x="1421" y="766" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#4C3205">What ₹40k buys</text>
+<text x="1421" y="808" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">delta</text>
+<rect x="1542" y="316" width="178" height="116" rx="18" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="2"/>
+<text x="1631" y="346" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#1A1A1A">66%</text>
+<text x="1631" y="374" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#1A1A1A">Two walls</text>
+<text x="1631" y="416" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">cheezein</text>
+<circle cx="1702" cy="334" r="8" fill="#4C3205"/>
+<text x="1702" y="334" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="9" font-weight="700" fill="#FFECBB">V</text>
+<rect x="1542" y="512" width="178" height="116" rx="18" fill="#FFFFFF" stroke="#4C3205" stroke-width="2"/>
+<text x="1631" y="542" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#1A1A1A">70%</text>
+<text x="1631" y="570" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#1A1A1A">The tool</text>
+<text x="1631" y="612" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">bonus</text>
+<rect x="1752" y="316" width="178" height="116" rx="18" fill="#FFFFFF" stroke="#6B6B6B" stroke-width="2"/>
+<text x="1841" y="346" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#1A1A1A">78%</text>
+<text x="1841" y="374" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#1A1A1A">Skip this one</text>
+<text x="1841" y="416" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">dontbuy</text>
+<circle cx="1912" cy="334" r="8" fill="#4C3205"/>
+<text x="1912" y="334" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="9" font-weight="700" fill="#FFECBB">V</text>
+<rect x="1752" y="512" width="178" height="116" rx="18" fill="#FFECBB" stroke="#4C3205" stroke-width="2"/>
+<text x="1841" y="542" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#4C3205">85%</text>
+<text x="1841" y="570" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#4C3205">Your life</text>
+<text x="1841" y="612" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">lifestyle</text>
+<circle cx="1912" cy="530" r="8" fill="#4C3205"/>
+<text x="1912" y="530" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="9" font-weight="700" fill="#FFECBB">V</text>
+<rect x="1962" y="512" width="178" height="116" rx="18" fill="#FFECBB" stroke="#4C3205" stroke-width="2"/>
+<text x="2051" y="542" text-anchor="middle" font-family="Bricolage Grotesque" font-size="15" font-weight="700" fill="#4C3205">95%</text>
+<text x="2051" y="570" text-anchor="middle" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#4C3205">Come talk</text>
+<text x="2051" y="612" text-anchor="middle" font-family="Inter" font-size="11" font-weight="400" fill="#6B6B6B">cta</text>
+<rect x="56" y="934" width="2100" height="132" rx="20" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="1.5"/>
+<text x="84" y="968" font-family="Inter" font-size="11.5" font-weight="700" fill="#6B6B6B">HOW TO READ IT</text>
+<line x1="84" y1="1012" x2="130" y2="1012" stroke="#FBD34A" stroke-width="3.5"/>
+<text x="144" y="1004" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="14.5" font-weight="700" fill="#1A1A1A">leads to</text>
+<text x="144" y="1024" dominant-baseline="central" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">the walk, in order</text>
+<line x1="313.75" y1="1012" x2="359.75" y2="1012" stroke="#E8E4DC" stroke-width="2" stroke-dasharray="8 7"/>
+<text x="373.75" y="1004" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="14.5" font-weight="700" fill="#1A1A1A">supports</text>
+<text x="373.75" y="1024" dominant-baseline="central" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">a prop backing that node</text>
+<line x1="584.75" y1="1012" x2="630.75" y2="1012" stroke="#6B6B6B" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/>
+<text x="644.75" y="1004" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="14.5" font-weight="700" fill="#1A1A1A">closes a loop</text>
+<text x="644.75" y="1024" dominant-baseline="central" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">arcs back to the hook</text>
+<circle cx="847.125" cy="1012" r="8" fill="#4C3205"/>
+<text x="847.125" y="1012" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="9" font-weight="700" fill="#FFECBB">V</text>
+<text x="895.125" y="1004" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="14.5" font-weight="700" fill="#1A1A1A">veiled</text>
+<text x="895.125" y="1024" dominant-baseline="central" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">revealed piece by piece</text>
+</svg>
