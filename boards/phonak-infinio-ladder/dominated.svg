@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="826" viewBox="0 0 1560 826">
+<rect x="0" y="0" width="1560" height="826" fill="#FAF8F4"/>
+<rect x="56" y="64" width="354.85" height="32" rx="16" fill="#FFECBB"/>
+<text x="73" y="80" dominant-baseline="central" font-family="Inter" font-size="11.5" font-weight="700" fill="#4C3205">THE ONE THAT COSTS MORE IS NOT THE BETTER BUY</text>
+<text x="56" y="169" font-family="Bricolage Grotesque" font-size="46" font-weight="700" fill="#1A1A1A">₹80,000 more, and worse at the hard part</text>
+<rect x="56" y="188" width="72" height="6" rx="3" fill="#FBD34A"/>
+<text x="56" y="232" font-family="Inter" font-size="18" font-weight="400" fill="#3A3A3A">Both are Audéo Infinio Ultra. Both fit the same hearing loss.</text>
+<rect x="56" y="276" width="597" height="330" rx="22" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="1.5"/>
+<text x="354.5" y="334" text-anchor="middle" font-family="Bricolage Grotesque" font-size="38" font-weight="700" fill="#1A1A1A">I90-R</text>
+<text x="354.5" y="362" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#4F4F4F">PREMIUM, NO SPHERE</text>
+<text x="354.5" y="414" text-anchor="middle" font-family="Bricolage Grotesque" font-size="34" font-weight="700" fill="#1A1A1A">₹6,70,000</text>
+<text x="354.5" y="438" text-anchor="middle" font-family="Inter" font-size="13" font-weight="400" fill="#6B6B6B">per pair</text>
+<line x1="86" y1="462" x2="623" y2="462" stroke="#E8E4DC" stroke-width="1.5"/>
+<circle cx="98" cy="494" r="13" fill="none" stroke="#E8E4DC" stroke-width="2"/><path d="M 92 488 L 104 500 M 104 488 L 92 500" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round"/>
+<text x="124" y="494" dominant-baseline="central" font-family="Inter" font-size="15.5" font-weight="500" fill="#3A3A3A">No AI chip at all</text>
+<circle cx="98" cy="532" r="5" fill="#FBD34A"/>
+<text x="124" y="532" dominant-baseline="central" font-family="Inter" font-size="15.5" font-weight="500" fill="#3A3A3A">Handles loud noise with Speech Enhancer</text>
+<circle cx="98" cy="570" r="5" fill="#FBD34A"/>
+<text x="124" y="570" dominant-baseline="central" font-family="Inter" font-size="15.5" font-weight="500" fill="#3A3A3A">20 channels · 3 year warranty</text>
+<rect x="907" y="276" width="597" height="330" rx="22" fill="#FFECBB" stroke="#FBD34A" stroke-width="2.5"/>
+<text x="1205.5" y="334" text-anchor="middle" font-family="Bricolage Grotesque" font-size="38" font-weight="700" fill="#1A1A1A">I70-Sphere</text>
+<text x="1205.5" y="362" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#4F4F4F">ADVANCED, WITH SPHERE</text>
+<text x="1205.5" y="414" text-anchor="middle" font-family="Bricolage Grotesque" font-size="34" font-weight="700" fill="#4C3205">₹5,90,000</text>
+<text x="1205.5" y="438" text-anchor="middle" font-family="Inter" font-size="13" font-weight="400" fill="#6B6B6B">per pair</text>
+<line x1="937" y1="462" x2="1474" y2="462" stroke="#FBD34A" stroke-width="1.5"/>
+<circle cx="949" cy="494" r="13" fill="#FBD34A"/><path d="M 942 494 l 4.5 5 l 9 -10" fill="none" stroke="#4C3205" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="975" y="494" dominant-baseline="central" font-family="Inter" font-size="15.5" font-weight="500" fill="#3A3A3A">DEEPSONIC AI chip, dedicated to speech in noise</text>
+<circle cx="949" cy="532" r="13" fill="#FBD34A"/><path d="M 942 532 l 4.5 5 l 9 -10" fill="none" stroke="#4C3205" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="975" y="532" dominant-baseline="central" font-family="Inter" font-size="15.5" font-weight="500" fill="#3A3A3A">Spheric Speech Clarity, medium strength</text>
+<circle cx="949" cy="570" r="13" fill="#FBD34A"/><path d="M 942 570 l 4.5 5 l 9 -10" fill="none" stroke="#4C3205" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="975" y="570" dominant-baseline="central" font-family="Inter" font-size="15.5" font-weight="500" fill="#3A3A3A">20 channels · 4 year warranty</text>
+<rect x="675" y="367" width="210" height="148" rx="22" fill="#1A1A1A"/>
+<text x="780" y="401" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="11.5" font-weight="700" fill="#FAF8F4">THE SPHERE IS</text>
+<text x="780" y="445" text-anchor="middle" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="36" font-weight="700" fill="#FBD34A">₹80,000</text>
+<text x="780" y="485" text-anchor="middle" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="17" font-weight="700" fill="#FAF8F4">CHEAPER</text>
+<rect x="56" y="646" width="1448" height="84" rx="20" fill="#FFFFFF" stroke="#FBD34A" stroke-width="2"/>
+<text x="88" y="688" dominant-baseline="central" font-family="Inter" font-size="19" font-weight="600" fill="#1A1A1A">What the I90-R adds over the I70-R is loud-noise handling. That is exactly what the Sphere's chip is built for.</text>
+<text x="56" y="770" font-family="Inter" font-size="14" font-weight="400" fill="#6B6B6B">Prices are MRP per pair from the live catalogue. Feature claims from Phonak's Infinio feature summary, doc 028-2681-03.</text>
+</svg>

@@ -1,6 +1,6 @@
 # Synva Boards — Claude Code Context
 
-> **Version: 2.4 — 2026-07-28** · functional/architectural source of truth for the
+> **Version: 2.5 — 2026-08-13** · functional/architectural source of truth for the
 > **Figma-board workflow**. Visual/design decisions live in [DESIGN.md](./DESIGN.md);
 > the operational procedures live in the five skills under
 > [`.claude/skills/`](./.claude/skills/) — `video-topic` → `video-research` →
@@ -87,7 +87,7 @@ one wrote, all under `videos/<slug>/`:
 | # | Skill | Reads | Writes |
 | --- | --- | --- | --- |
 | 0 | [`video-topic`](./.claude/skills/video-topic/SKILL.md) | YouTube Data API (facts) + vidIQ MCP (insight) | `00-topic.md` — the demand evidence + the chosen title |
-| 1 | [`video-research`](./.claude/skills/video-research/SKILL.md) | topic + live Supabase + ClickUp + brand voice | `01-research.md` — catalogue facts + strategy brief (1SD pain, viewer moment, funnel stage) |
+| 1 | [`video-research`](./.claude/skills/video-research/SKILL.md) | topic + live Supabase + **the vendor's own spec sheets** + ClickUp + brand voice | `01-research.md` — catalogue facts, **the DB↔vendor discrepancy table**, + strategy brief (1SD pain, viewer moment, funnel stage) |
 | 2 | [`video-hook`](./.claude/skills/video-hook/SKILL.md) | `01-research.md` | `02-hook.md` — the 30 seconds + what's on screen + loop anchors |
 | 3 | [`video-mindmap`](./.claude/skills/video-mindmap/SKILL.md) | both, + Chintan's experiential answers | `03-mindmap.md` + `mindmap.json` — **the board manifest** |
 | 4 | [`figma-board-svg`](./.claude/skills/figma-board-svg/SKILL.md) | `mindmap.json` | `boards/<slug>/*.svg` |
@@ -227,6 +227,28 @@ check. It is a floor, not a substitute for reading the skill.
   guaranteed-render fallback. **It has no generator** (it predates the scripts); it is
   kept as an artifact. Regenerate it by hand if it is ever needed again.
 
+### `boards/phonak-infinio-ladder/` — the Audéo Infinio Ultra video (2026-08-13)
+**11 boards**, all live-data, all verified. `npm run boards:all infinio`. The video is an
+**unboxing anchored on a customer's I50** that becomes a price-ladder argument. Planning
+artifacts in `videos/phonak-infinio-ladder/` (`00-topic` → `04-talk-brief`).
+- **The argument the catalogue was hiding:** channels stop climbing at the I70 (12/16/20/20,
+  vendor-confirmed), so **I70 → I90 costs ₹2,26,000 for one feature plus one AutoSense
+  program** — and the **I90-R at ₹6,70,000 is dominated by the I70-Sphere at ₹5,90,000**,
+  which is ₹80,000 cheaper, carries a year more warranty, and does loud noise better.
+- **`entry` / `ladder` are veil boards** (`brand/reveal-covers`): the I70 → I90 delta chip
+  stays covered from 0% to 55%. That withholding is the video's main retention device.
+- **Two DB facts are deliberately overridden on the boards**, because the catalogue is
+  stale: `AutoSense OS 6.0` is printed as **7.0** (the Ultra firmware, Oct 2025), and the
+  AutoSense **program count** (4/6/7/8 by level) is merged in from Phonak's own feature
+  summary because the DB stores AutoSense as one ungraded row. Both overrides are marked
+  in the generators and written up in [docs/db-fixes-phonak-infinio.md](./docs/db-fixes-phonak-infinio.md).
+  Remove them once the Admin app applies the renames.
+- **`verdict` and `bonus` are placeholders and must not be recorded yet** — `verdict`
+  carries five `[ASK CHINTAN]` rows (experiential input only), `bonus` needs the gate live.
+- The bonus is a **decision tool, not a table** (LEAD-CAPTURE's disqualifier): six
+  questions, and it recommends a higher level on **exactly three triggers**, otherwise it
+  says buy cheaper. That promise is a build spec, not copy — see `BONUS-BRIEF.md`.
+
 ### `boards/styletto-ix/` — the Styletto IX video
 - **`styletto-ix-comparison.svg`** (`board:styletto-features`) — the flagship board:
   headline band (Price / Channels / Clarity-in-noise / Auto-adapt / Warranty) → "common
@@ -344,6 +366,7 @@ stays in the skill; what to read in the website repo goes in [WEBSITE.md](./WEBS
 ## Changelog
 | Version | Date | Change |
 | --- | --- | --- |
+| 2.5 | 2026-08-13 | **The catalogue is no longer trusted on its own: `video-research` gained a mandatory Step 5, "Verify the catalogue against the vendor".** Cause: on 2026-08-12 a wrong Bluetooth cell in the DB went to camera as a factual claim about a product. The catalogue is **Synva's own data entry**, not the manufacturer's — a shop's record of what it sells, and it can be typo'd, stale, half-migrated or flattened. The new step diffs every fact that will be spoken or printed (the whole headline-spec band + any feature presence the argument leans on) against the manufacturer's own spec-sheet PDFs, and records each field as **CONFIRMED / DISCREPANCY / UNVERIFIED**. Three rules make it stick: **the vendor always outranks the DB** (and the DB fix goes to the Admin app, never patched from here), **an unverified spec is never printed** — it becomes a question for Chintan, and **verification is uncapped** while the old gap-fill pass stays capped at 3 queries. Mechanics recorded because they are where this fails: vendor PDFs come back binary from WebFetch, so `pdftotext -layout` the saved file rather than falling back to a retailer page. Three traps documented from the first real run: **a vendor PDF can itself be stale** (Phonak's Infinio summary is dated 2024-07, before the late-2025 "Ultra" firmware); **the DB can flatten a spec that genuinely varies**, hiding a tier gap (AutoSense OS 6.0 is one ungraded row in the DB, but Phonak tiers it 4/6/7/8 programs); and **the DB can invent a difference the vendor never states** (SpeechSensor graded 4 vs 5 where Phonak lists it identically). `01-research.md` gained a `VENDOR SOURCES VERIFIED` header, a `CONFIRMED` list and a `DB ↔ VENDOR DISCREPANCIES` table. First run: `videos/phonak-infinio-ladder/` — six discrepancies found, none fatal, and the video's load-bearing claim (Speech Enhancer is I90-only, channels stop at 20 from I70 up) **confirmed against Phonak's own feature summary**. |
 | 2.4 | 2026-07-28 | **The `perf_*` ratings are Synva's, not the manufacturer's — so they leave the comparison** (Chintan, 2026-07-28). `perf_speech_noise` / `perf_auto_adapt` / `perf_speech_quiet` are **Chintan's own 1-5 clinical assessments**; Phonak and Signia neither publish nor compare on them, so a viewer cannot check them and they cannot carry an argument. This **unfreezes the headline-spec row set on 2026-07-21**, two of whose five rows were those ratings. New rule: the headline band is **manufacturer-verifiable only** — Price (per pair, **after discount, and the discount % is never printed**) · Channels · Bluetooth · Rechargeable · Warranty, or whichever ~5 manufacturer specs actually *vary* (platform, technology level, fitting range, form factor all qualify). The ratings move to a **separate bordered "Synva's assessment" panel** (new rule 6d) subtitled *our own 1-5 read, not a manufacturer spec* — keeping the one thing no competitor channel has, an audiologist's verdict, without letting it read as vendor data. Propagated to `figma-board-svg` 6a+6d, `DESIGN.md`, `video-research`, `video-hook`, `video-mindmap`. **The shipped Styletto boards still use the old row and need regenerating.** Found while researching ₹50k vs ₹1L Phonak, where dropping the ratings surfaced three better manufacturer facts they had been masking: Terra has **no Bluetooth at all**, Terra/Terra+ are **disposable-battery** against the ₹1L rechargeable, and they sit on a **different platform (T vs Lumity)** rather than being tiers of one. |
 | 2.3 | 2026-07-28 | **Facts from the YouTube Data API, insight from vidIQ** (Chintan's rule): new [`lib/youtube.mjs`](./lib/youtube.mjs) reads `YOUTUBE_API_KEY`/`YOUTUBE_CHANNEL_ID` **live from the website repo's `.env.local`** — the secret is never copied here, so rotating it there just works. Gives `channelVideos` / `longFormVideos` (Shorts filtered by duration), `viewsPerDay` and `ageDays`. It is free, complete, and **more current than vidIQ**, which was still serving a stale title for a video Chintan had renamed. vidIQ credits now go only to what the raw API cannot compute: breakout scores, keyword volume/competition, outlier discovery, title scoring. Two findings recorded in the skill because they are invisible in keyword data and decisive for topic choice: **rank by views/day, never raw views** (view curves are front-loaded, so a newer video with *lower* v/day is genuinely weak, not immature), and **Synva's price-band videos decline monotonically as the band rises** — ₹25k → 17.2 v/day, ₹50k → 12.6, ₹1L → 6.8, against 24.8-54.5 for the whole-ladder "Be SMART" Part 3 format. Also added `videos/TOPIC-SLATE.md`, the standing evidence-backed topic slate, built from the ClickUp buying-series scripts + the live catalogue (**303 models, Phonak and Signia only** — the brand-expansion play is dead, so the series scales *down* into families rather than sideways into brands). |
 | 2.2 | 2026-07-28 | **Topic selection got a data source: `video-topic`, a new step 0 on the vidIQ MCP** (Chintan bought the subscription). Until now the pipeline assumed the topic was already chosen — the one step running on instinct while everything downstream ran on live data. Checked first: **there is no vidIQ skill to download** (the only marketplace installed is `claude-plugins-official`, which has none, and vidIQ ships an MCP server rather than a skill), so this one is written against the server. It is already configured as the `claude.ai vidIQ for Claude` connector at `https://mcp.vidiq.com/mcp` and needs **OAuth only** — read-only, ~34 tools, most calls 5 credits and `video_watch` 10. The skill **discovers tool names at run time via ToolSearch** rather than hardcoding them, since the names here came from vidIQ's public docs, not from inspecting the server. Method, in order: real competitive set (`similar_channels`, not assumption) → **outliers** (a video beating its own channel's baseline, which is the real signal, not raw views) → `keyword_research` on 2-3 framings → title candidates + scoring. Budget 8-12 calls. Three limits are written into the skill as rules, because they are where this tool misleads: it is a **lagging indicator** that pulls toward the middle of the distribution, it knows **nothing clinical** (the experiential batch is still Chintan-only), and **thin Indian search volume must be read as direction, not magnitude** — a topic he gets asked weekly in the clinic with no search volume is an opportunity, not a dead end. Standing rule: **the reframe beats the score**, and the disagreement gets recorded rather than resolved in the data's favour. |

@@ -1,0 +1,174 @@
+{
+  "slug": "phonak-infinio-ladder",
+  "title": "I Opened a ₹2,56,000 Phonak Hearing Aid. Here's What You Actually Get.",
+  "pattern": "single-device anchor x tier ladder x late inversion",
+  "generated": "2026-08-13",
+  "retention_thesis": "A four-model comparison leaks viewers the moment someone decides which model is theirs. This map fixes that three ways: (1) the physical I50 stays in frame the whole video, so there is always something to look at that a spec table cannot give; (2) three loops are planted in the hook and NONE resolve before 55%, so nobody can self-select out early; (3) the biggest surprise is an inversion (the cheaper Sphere beats the dearer I90-R) placed at 70%, past the point where comparison videos normally die.",
+  "canvas": { "colPitch": 1600, "rowPitch": 900 },
+  "nodes": [
+    {
+      "id": "entry", "name": "01-entry", "kind": "root", "board": "infinio-entry",
+      "beat": "Hook: four levels, four prices, one row veiled",
+      "command": "npm run board:infinio-entry",
+      "must_show": ["I30 / I50 / I70 / I90 with pair MRP", "channels 12 / 16 / 20 / 20", "the I70 to I90 step covered by a veil", "no feature names yet"],
+      "data": "supabase:hearing_aid_models",
+      "talk": ["Deliver the frozen hook verbatim (02-hook.md)", "Hold the sealed I50 box the whole time. Do not put it down", "Point AT the veil on the I70 to I90 row, never lift it", "End on the bonus tease, one sentence"],
+      "veil": true, "phase": 1, "atPercent": 0, "col": 0, "row": 0, "x": 0, "y": 0
+    },
+    {
+      "id": "trust", "name": "02-trust", "kind": "leaf", "board": "title-banner",
+      "beat": "Who is talking",
+      "command": "npm run board:title-banner",
+      "must_show": ["Chintan Bhayani, Founder, Synva Hearing", "the video title as kicker"],
+      "data": "none",
+      "talk": ["Name, founder, and the 2-year / 500+ people line", "CHECK the number before recording: April 2026 scripts say 500+, the ₹50k video used 1000+"],
+      "veil": false, "phase": 4, "atPercent": 4, "col": 1, "row": 1, "x": 1600, "y": 900
+    },
+    {
+      "id": "plan", "name": "03-plan", "kind": "leaf", "board": "chapters",
+      "beat": "What this video covers",
+      "command": "npm run board:chapters",
+      "must_show": ["3 chapters: what is in the box / what each step buys / which one is yours"],
+      "data": "none",
+      "talk": ["Three things, then the tool at the end", "Bonus already teased in the hook. Reference, do not re-sell"],
+      "veil": false, "phase": 4, "atPercent": 7, "col": 2, "row": 1, "x": 3200, "y": 900
+    },
+    {
+      "id": "inbox", "name": "04-inbox", "kind": "branch", "board": "infinio-inbox",
+      "beat": "Open the box. Pay the title's promise in full, early.",
+      "command": "npm run board:infinio-inbox",
+      "must_show": ["every item in the box, named", "the receiver is ordered separately and is NOT a tier thing", "charger type: standard vs ChargerGo (the -R Go rows, +₹6,000)"],
+      "data": "supabase:hearing_aid_models (Go variants)",
+      "talk": ["This is the literal payoff of the title. Do it FIRST and do it completely", "Receivers come separately, chosen by hearing loss, not by price level", "ChargerGo is the charger with a battery in it, ₹6,000 more, same hearing aid", "Nothing in this box changes between I30 and I90. That is the point that sets up the whole video"],
+      "veil": false, "phase": 1, "atPercent": 11, "col": 3, "row": 0, "x": 4800, "y": 0
+    },
+    {
+      "id": "common", "name": "05-common", "kind": "branch", "board": "infinio-common",
+      "beat": "The shared floor: what EVERY Infinio Ultra does, at any price",
+      "command": "npm run board:infinio-common",
+      "must_show": ["the 9 features present at every level", "AutoSense OS 7.0", "Bluetooth 5.3 identical across all four levels", "IP68, rechargeable, 0-110 dB fitting range"],
+      "data": "supabase:model_features + Phonak feature summary 028-2681-03",
+      "talk": ["Establish the floor BEFORE any delta. Additive framing depends on it", "Bluetooth is the same on all four. It is not a reason to go up", "Fitting range is the same on all four. Your hearing loss does not decide your level", "Say the AutoSense 7.0 name once here. It comes back at 86%"],
+      "veil": false, "phase": 2, "atPercent": 22, "col": 4, "row": 0, "x": 6400, "y": 0
+    },
+    {
+      "id": "ladder", "name": "06-ladder", "kind": "branch", "board": "infinio-ladder",
+      "beat": "THE HUB. Four rungs, three steps, and what each step costs",
+      "command": "npm run board:infinio-ladder",
+      "must_show": ["I30 -> I50 -> I70 -> I90 additively", "the ₹ delta on each step", "the features each step ADDS, never what the lower one lacks", "channels stop at 20 from I70"],
+      "data": "supabase:model_features, verified against Phonak 028-2681-03",
+      "talk": ["Reveal one rung at a time with the veils. Do not show the whole board at once", "ADDITIVE only. 'This one adds X.' Never 'that one is worse'. Someone watching owns the cheap one", "I50 to I70 is the real jump: 4 features, 4 channels, a year of warranty", "Do NOT resolve the I70 to I90 step here. That is the next node"],
+      "veil": true, "phase": 2, "atPercent": 34, "col": 5, "row": 0, "x": 8000, "y": 0
+    },
+    {
+      "id": "sphere", "name": "07-sphere", "kind": "branch", "board": "infinio-sphere",
+      "beat": "The Sphere branch: this is where the AI actually is",
+      "command": "npm run board:infinio-sphere",
+      "must_show": ["Sphere exists ONLY at I70 and I90", "DEEPSONIC is a second chip, not a setting", "Spheric Speech Clarity: medium at 70-Sphere, full at 90-Sphere (Phonak's own words)", "the I70 and I90 WITHOUT Sphere have no AI at all"],
+      "data": "Phonak 028-2681-03 + phonak.com Audeo Sphere page",
+      "talk": ["CORRECT THE COMMON BELIEF: the I70 and I90 do not have AI. Only the -Sphere versions do", "It is a separate, more expensive product, not a feature of the tier", "Phonak grades this one honestly themselves: medium vs full strength", "Phonak's claims are Phonak's: 3x more likely to understand, 35% less effort. Attribute them"],
+      "veil": false, "phase": 3, "atPercent": 46, "col": 6, "row": 0, "x": 9600, "y": 0
+    },
+    {
+      "id": "turn", "name": "08-turn", "kind": "branch", "board": "infinio-turn",
+      "beat": "THE TURN. Closes loop A. ₹2,26,000 for one feature and one program.",
+      "command": "npm run board:infinio-turn",
+      "must_show": ["I70-R ₹4,44,000 vs I90-R ₹6,70,000", "the delta: Speech Enhancer + the AutoSense 'Speech in loud noise' program", "SAME 20 channels, SAME 3 year warranty", "the source: Phonak's own feature summary, named on the board"],
+      "data": "Phonak 028-2681-03, cross-checked against supabase",
+      "talk": ["Lift the veil that has been on since 0%. This is the loop-A payoff", "TWO things, not one. The DB said one; Phonak's document says one feature plus one automatic program. Say two", "Name the source out loud. This is Phonak's chart, not my opinion", "Do NOT say 'the I90 is a rip-off'. Say what it adds, show what it costs, let the viewer do the arithmetic"],
+      "veil": true, "phase": 3, "atPercent": 55, "col": 7, "row": 0, "x": 11200, "y": 0
+    },
+    {
+      "id": "battery", "name": "09-battery", "kind": "aside", "board": "infinio-battery",
+      "beat": "The honest limitation nobody in the category says out loud",
+      "command": "npm run board:infinio-battery",
+      "must_show": ["up to 56 hours normally", "roughly 10 to 11 hours with Sphere running continuously", "the Ultra firmware improved efficiency ~30%"],
+      "data": "hearingtracker.com + phonak.com",
+      "talk": ["The thing you pay the premium for is the thing that drains the battery", "This is not a reason not to buy it. It is a reason to know before you buy it", "If you are out 14 hours a day in noise, ask about this specifically"],
+      "veil": false, "phase": 3, "atPercent": 62, "col": 7, "row": 1, "x": 11200, "y": 900
+    },
+    {
+      "id": "dominated", "name": "10-dominated", "kind": "branch", "board": "infinio-dominated",
+      "beat": "THE INVERSION. Closes loop C. The dearer model is the worse buy.",
+      "command": "npm run board:infinio-dominated",
+      "must_show": ["I90-R ₹6,70,000 vs I70-Sphere ₹5,90,000", "the ₹80,000 gap, in the SPHERE's favour", "what the I90-R adds over I70-R is loud-noise handling, which is exactly what DEEPSONIC does better", "4 year warranty on Sphere vs 3 on the I90-R"],
+      "data": "supabase:hearing_aid_models + Phonak 028-2681-03",
+      "talk": ["This is the single most useful thing in the video. Slow down", "The I90-R costs ₹80,000 MORE than the I70-Sphere and does the hard job worse", "And the Sphere carries a year more warranty", "BLOCKED until Chintan answers: is there a real clinical reason to pick an I90-R? If yes it goes here"],
+      "veil": false, "phase": 3, "atPercent": 70, "col": 8, "row": 0, "x": 12800, "y": 0
+    },
+    {
+      "id": "verdict", "name": "11-verdict", "kind": "branch", "board": "infinio-verdict",
+      "beat": "Closes loop B. Which one is actually yours.",
+      "command": "npm run board:infinio-verdict",
+      "must_show": ["one row per level with WHO it is for, in lifestyle terms", "the anchor model marked", "the honest 'most people do not need to go past here' line"],
+      "data": "Chintan's clinical judgement — NOT the catalogue",
+      "talk": ["Answer loop B directly: the one I would buy", "Use the car analogy already proven on camera: Creta / C-Class / S-Class / Maybach", "Say the permission line: going above this is not mandatory", "BLOCKED until Chintan gives the per-level persona and the anchor model"],
+      "veil": false, "phase": 3, "atPercent": 78, "col": 9, "row": 0, "x": 14400, "y": 0
+    },
+    {
+      "id": "upgrade", "name": "12-upgrade", "kind": "leaf", "board": "infinio-upgrade",
+      "beat": "The late gift: if you already own one, you are owed a free upgrade",
+      "command": "npm run board:infinio-upgrade",
+      "must_show": ["Ultra is firmware, not new hardware", "free, in-clinic, minutes", "AutoSense OS 7.0: 18x more training scenarios, 24% more precise", "~30% better battery efficiency, one-step Bluetooth pairing"],
+      "data": "hearingtracker.com + hearshearingandhearables.com",
+      "talk": ["This is for the viewer who already bought and thinks the video was not for them", "Any Infinio bought from August 2024 can be upgraded free. Go ask", "It is why the whole line is now called Ultra", "Deliberately placed at 86% — it is a reason to reach the end"],
+      "veil": false, "phase": 4, "atPercent": 86, "col": 10, "row": 0, "x": 16000, "y": 0
+    },
+    {
+      "id": "bonus", "name": "13-bonus", "kind": "exit", "board": "infinio-bonus",
+      "beat": "The tool",
+      "command": "npm run board:infinio-bonus",
+      "must_show": ["what the tool does in one line", "the 'it will tell you to buy cheaper if cheaper is right' promise", "the URL", "name + mobile only"],
+      "data": "none — see BONUS-BRIEF.md",
+      "talk": ["Pitch the restraint, not the feature: it recommends UP only when your answers require it", "Say it plainly: most people who use it will be told to buy the cheaper one", "BLOCKED: do not record until the Knowledge Hub page and gate are live"],
+      "veil": false, "phase": 5, "atPercent": 92, "col": 11, "row": 0, "x": 17600, "y": 0
+    },
+    {
+      "id": "cta", "name": "14-cta", "kind": "exit", "board": "cta",
+      "beat": "Close",
+      "command": "npm run board:cta",
+      "must_show": ["synva.io", "open invitation, not a booking demand"],
+      "data": "none",
+      "talk": ["Signature close: Mai aapko agle video mein milunga. Tab tak ke liye, Bye Bye!"],
+      "veil": false, "phase": 4, "atPercent": 97, "col": 12, "row": 0, "x": 19200, "y": 0
+    }
+  ],
+  "edges": [
+    { "from": "entry", "to": "trust", "kind": "leads-to" },
+    { "from": "trust", "to": "plan", "kind": "leads-to" },
+    { "from": "plan", "to": "inbox", "kind": "leads-to" },
+    { "from": "inbox", "to": "common", "kind": "leads-to" },
+    { "from": "common", "to": "ladder", "kind": "supports" },
+    { "from": "ladder", "to": "sphere", "kind": "leads-to" },
+    { "from": "ladder", "to": "turn", "kind": "leads-to" },
+    { "from": "sphere", "to": "battery", "kind": "contrasts" },
+    { "from": "turn", "to": "dominated", "kind": "leads-to" },
+    { "from": "sphere", "to": "dominated", "kind": "supports" },
+    { "from": "dominated", "to": "verdict", "kind": "leads-to" },
+    { "from": "verdict", "to": "upgrade", "kind": "leads-to" },
+    { "from": "upgrade", "to": "bonus", "kind": "leads-to" },
+    { "from": "bonus", "to": "cta", "kind": "leads-to" },
+    { "from": "entry", "to": "turn", "kind": "closes-loop", "note": "loop A: the ₹2,26,000 step" },
+    { "from": "entry", "to": "dominated", "kind": "closes-loop", "note": "loop C: the ₹80,000 inversion" },
+    { "from": "entry", "to": "verdict", "kind": "closes-loop", "note": "loop B: the one I would buy" }
+  ],
+  "loops": [
+    { "id": "A", "planted": 0, "closed": 55, "line": "one step costs ₹2,26,000 and gives you almost nothing", "closes_on": "turn" },
+    { "id": "B", "planted": 0, "closed": 78, "line": "the one I would actually buy", "closes_on": "verdict" },
+    { "id": "C", "planted": 0, "closed": 70, "line": "₹80,000 less than the model most people get pushed towards", "closes_on": "dominated" }
+  ],
+  "phases": [
+    { "n": 1, "name": "anchor", "boards": ["infinio-entry", "infinio-inbox"], "filter": "infinio-entry infinio-inbox" },
+    { "n": 2, "name": "the floor and the ladder", "boards": ["infinio-common", "infinio-ladder"], "filter": "infinio-common infinio-ladder" },
+    { "n": 3, "name": "the payoffs", "boards": ["infinio-sphere", "infinio-turn", "infinio-battery", "infinio-dominated", "infinio-verdict"], "filter": "infinio-" },
+    { "n": 4, "name": "reused brand boards", "boards": ["title-banner", "chapters", "cta", "infinio-upgrade"], "filter": "" },
+    { "n": 5, "name": "blocked on the gate", "boards": ["infinio-bonus"], "filter": "infinio-bonus" }
+  ],
+  "blocked": [
+    "dominated — needs Chintan's answer on whether the I90-R has a real clinical case",
+    "verdict — needs the per-level persona map and the anchor model",
+    "bonus — needs the Knowledge Hub page and gate live before recording",
+    "ALL PRICE BOARDS — MRP vs after-discount must be decided before the shoot",
+    "warranty ladder 2/2/3/3/4 is UNVERIFIED against any Phonak document"
+  ]
+}

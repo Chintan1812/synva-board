@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="637" viewBox="0 0 1400 637">
+<rect x="0" y="0" width="1400" height="637" fill="#FAF8F4"/>
+<rect x="56" y="64" width="205.12" height="32" rx="16" fill="#FFECBB"/>
+<text x="158.56" y="80" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="11.5" font-weight="700" fill="#4C3205">THE PART NOBODY MENTIONS</text>
+<text x="56" y="169" font-family="Bricolage Grotesque" font-size="46" font-weight="700" fill="#1A1A1A">The AI is what drains the battery</text>
+<rect x="56" y="193" width="72" height="7" rx="3.5" fill="#FBD34A"/>
+<text x="56" y="237" font-family="Inter" font-size="18" font-weight="400" fill="#4F4F4F">Same device, same charge, two very different days.</text>
+<rect x="56" y="275" width="1288" height="68" rx="16" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="1.5"/>
+<circle cx="94" cy="309" r="17" fill="#FBD34A"/><path d="M 87 309 l 4.5 5 l 9 -10" fill="none" stroke="#4C3205" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="128" y="297" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="21" font-weight="600" fill="#1A1A1A">Up to 56 hours</text>
+<text x="128" y="322" dominant-baseline="central" font-family="Inter" font-size="14" font-weight="400" fill="#3A3A3A">Normal use, Sphere mode not running.</text>
+<rect x="56" y="353" width="1288" height="68" rx="16" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="1.5"/>
+<circle cx="94" cy="387" r="17" fill="none" stroke="#E8E4DC" stroke-width="2"/><path d="M 88 381 L 100 393 M 100 381 L 88 393" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round"/>
+<text x="128" y="375" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="21" font-weight="600" fill="#1A1A1A">Roughly 10 to 11 hours</text>
+<text x="128" y="400" dominant-baseline="central" font-family="Inter" font-size="14" font-weight="400" fill="#6B6B6B">With Sphere mode running continuously, which is what a loud day looks like.</text>
+<rect x="56" y="431" width="1288" height="68" rx="16" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="1.5"/>
+<circle cx="94" cy="465" r="5" fill="#FBD34A"/>
+<text x="128" y="453" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="21" font-weight="600" fill="#1A1A1A">The Ultra firmware improved efficiency about 30%</text>
+<text x="128" y="478" dominant-baseline="central" font-family="Inter" font-size="14" font-weight="400" fill="#6B6B6B">This is already the better number. It used to be worse.</text>
+<text x="56" y="565" font-family="Inter" font-size="15.5" font-weight="600" fill="#4C3205">If you are out in noise for 14 hours a day, ask about this specifically before you buy.</text>
+</svg>

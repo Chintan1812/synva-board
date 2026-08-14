@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="825" viewBox="0 0 1440 825">
+<rect x="0" y="0" width="1440" height="825" fill="#FAF8F4"/>
+<rect x="56" y="64" width="205.12" height="32" rx="16" fill="#FFECBB"/>
+<text x="158.56" y="80" text-anchor="middle" dominant-baseline="central" font-family="Inter" font-size="11.5" font-weight="700" fill="#4C3205">WHERE THE AI ACTUALLY IS</text>
+<text x="56" y="169" font-family="Bricolage Grotesque" font-size="46" font-weight="700" fill="#1A1A1A">Sphere is a different product, not a higher</text>
+<text x="56" y="227" font-family="Bricolage Grotesque" font-size="46" font-weight="700" fill="#1A1A1A">setting</text>
+<rect x="56" y="251" width="72" height="7" rx="3.5" fill="#FBD34A"/>
+<text x="56" y="295" font-family="Inter" font-size="18" font-weight="400" fill="#4F4F4F">It exists at two levels only, and it adds a second chip.</text>
+<rect x="56" y="337" width="652" height="358" rx="20" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="1.5"/>
+<rect x="56" y="337" width="652" height="6" rx="3" fill="#FBD34A"/>
+<text x="86" y="385" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="24" font-weight="700" fill="#1A1A1A">I30 · I50 · I70 · I90</text>
+<text x="86" y="413" dominant-baseline="central" font-family="Inter" font-size="14" font-weight="400" fill="#6B6B6B">the standard Infinio Ultra</text>
+<circle cx="90" cy="469" r="3.5" fill="#FBD34A"/>
+<text x="104" y="469" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">One chip: ERA. It does all the sound processing and the</text>
+<text x="104" y="497" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">connectivity.</text>
+<circle cx="90" cy="525" r="3.5" fill="#FBD34A"/>
+<text x="104" y="525" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">No AI processor. Not at the I70, and not at the I90 either.</text>
+<circle cx="90" cy="553" r="3.5" fill="#FBD34A"/>
+<text x="104" y="553" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">Noise is handled by directionality and noise cancellation, which</text>
+<text x="104" y="581" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">is conventional processing.</text>
+<rect x="732" y="337" width="652" height="358" rx="20" fill="#FFFFFF" stroke="#E8E4DC" stroke-width="1.5"/>
+<rect x="732" y="337" width="652" height="6" rx="3" fill="#FBD34A"/>
+<text x="762" y="385" dominant-baseline="central" font-family="Bricolage Grotesque" font-size="24" font-weight="700" fill="#1A1A1A">I70-Sphere · I90-Sphere</text>
+<text x="762" y="413" dominant-baseline="central" font-family="Inter" font-size="14" font-weight="400" fill="#6B6B6B">the only two with AI</text>
+<circle cx="766" cy="469" r="3.5" fill="#FBD34A"/>
+<text x="780" y="469" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">Two chips: ERA plus DEEPSONIC, a dedicated deep neural network</text>
+<text x="780" y="497" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">processor.</text>
+<circle cx="766" cy="525" r="3.5" fill="#FBD34A"/>
+<text x="780" y="525" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">Spheric Speech Clarity separates speech from noise in real time.</text>
+<circle cx="766" cy="553" r="3.5" fill="#FBD34A"/>
+<text x="780" y="553" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">Phonak grades it honestly: medium strength on the I70-Sphere,</text>
+<text x="780" y="581" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">full strength on the I90-Sphere.</text>
+<circle cx="766" cy="609" r="3.5" fill="#FBD34A"/>
+<text x="780" y="609" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">Phonak's own claims: up to 3x more likely to understand every</text>
+<text x="780" y="637" dominant-baseline="central" font-family="Inter" font-size="16" font-weight="500" fill="#3A3A3A">word, and up to 35% less listening effort.</text>
+<text x="56" y="753" font-family="Inter" font-size="15.5" font-weight="600" fill="#4C3205">Source: Phonak Infinio feature summary doc 028-2681-03, and phonak.com. There is no Sphere below the I70.</text>
+</svg>
