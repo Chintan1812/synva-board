@@ -1,43 +1,35 @@
-// DON'T BUY board -> the one device in this video we talk people out of.
+// DON'T BUY board -> the one device in this video we talk people out of, at 78%.
 //
-// WHAT THIS BOARD SHOWS: Terra+ RIC-312 against Terra+ RIC-R. Same platform,
-// same channels, same Bluetooth, same fitting range, same warranty. The ONLY
-// difference is the battery, and it costs ₹20,000 a piece. That is the whole
-// indictment, and it only lands if the two spec lists are visibly identical —
-// so the shared rows are printed in full rather than summarised.
+// ⚠️ REPOSITIONED 2026-07-29 (Chintan). The earlier version compared Terra+ 312
+// against Terra+ RIC-R to show "+₹20,000 for a battery". That is true but it is
+// an internal comparison, and it leaves the viewer with no answer. The board now
+// starts from what they actually want and routes them somewhere better:
 //
-// ORIGINAL SPEC WAS BROKEN: the plan compared Terra+ RIC-R against Audeo L30-312,
-// which is discontinued (absent from the June 2026 guide). Chintan's call
-// (2026-07-29) was to compare WITHIN Terra+, which is a stronger argument anyway
-// because nothing else varies.
+//   Terra+ RIC-R, ₹1,04,000 a pair, on the ENTRY platform.
+//     Want rechargeable?  -> the whole Orion ladder, 50/75/100/200, all cheaper
+//     Want Bluetooth?     -> Sirion Connect 75, cheaper, one compromise: battery
+//     Want all of it?     -> push up to Lumity L30 or Infinio I30, a real platform
 //
-// ⚠️ PRICING — read before touching the numbers.
-// The catalogue holds two units. 86 models have BOTH a "Pcs" row and a "Pair"
-// row, and the Pair row is always cheaper than 2x the Pcs row: it is a real pair
-// bundle, not a data error. So `mrp * 2` OVERSTATES the pair price wherever a
-// Pair row exists. Here the two sides are asymmetric:
-//   • Terra+ RIC-312 (HA-258) — Pcs only. No pair bundle listed.
-//   • Terra+ RIC-R   (HA-257 Pcs / HA-283 Pair) — has a real ₹1,04,000 bundle.
-// Quoting one number would either flatter the RIC-R (₹84,000 doubled vs a
-// discounted ₹1,04,000 bundle) or quote a price nobody can buy (₹1,24,000).
-// Chintan's call: SHOW BOTH COLUMNS and let the structure be visible. The
-// footnote states plainly where a pair price is a real bundle and where it is
-// simply twice the single price, so nothing is implied that the catalogue does
-// not say.
+// ⚠️ THE BLUETOOTH ONE IS SIRION, NOT ORION. Chintan said "Orion 75" on the call,
+// but the entire Orion C&G line is rechargeable with NO Bluetooth. The device
+// that has Bluetooth at that money is Sirion Connect 75 (12 ch, ASHA + MFi, and a
+// battery — which matches his own "one compromise of battery"). Verified live.
+// Do not swap this back to Orion without re-checking the catalogue.
 //
-// NO IMAGES ON THIS BOARD (Chintan, 2026-07-29). An earlier cut reserved two
-// picture slots. The rule we settled on is that a slot belongs only where the
-// SHAPE is the argument — brand/form-factors, cheezein, band1l. Here both units
-// are the same RIC and the argument is the battery, which no photo shows. Two
-// near-identical renders would have implied the difference is cosmetic, which is
-// the opposite of the point. Text-only is the correct answer, not a shortcut.
+// VISUAL, NOT WORDY (his instruction). The prices carry the argument: the thing
+// we say to skip costs MORE than three of the four alternatives. Every number is
+// pulled live and every delta is computed, never typed.
 //
-// Board rules: English only (rule 1b) · Synva tokens · flat fills · real centring
-// on both axes. Run: npm run board:phonak-dontbuy
+// Renders: Phonak from the local Target library, Signia from Supabase Storage
+// (webp -> PNG, because Figma's createImage rejects webp).
+//
+// rule 1b — English only. Run: npm run board:phonak-dontbuy
 import { boardOut } from "../../lib/paths.mjs";
-import { rest } from "../../lib/supabase.mjs";
-import { text, htext, mtext, ltext, writeBoard } from "../../lib/svg.mjs";
-import { boardHeader } from "../../lib/callout.mjs";
+import { rest, storageBuffer } from "../../lib/supabase.mjs";
+import { pngDataUri } from "../../lib/brand.mjs";
+import { renderDataUri, scaleFor } from "../../lib/phonak-renders.mjs";
+import { imageSlot } from "../../lib/imageslot.mjs";
+import { text, htext, mtext, ltext, wrap, writeBoard } from "../../lib/svg.mjs";
 import {
   INK, PAPER, WHITE, BORDER, MUTED, SUBTLE, BODY,
   YELLOW, YELLOW_LIGHT, YELLOW_DARK, DISP, UI,
@@ -45,127 +37,195 @@ import {
 
 const OUT = boardOut("phonak-50k-vs-1lakh", "dontbuy.svg");
 
-// HA-258 = Terra+ RIC-312 (Pcs only) · HA-257 = Terra+ RIC-R (Pcs)
-// HA-283 = the same RIC-R as a listed Pair bundle
+const SKIP = "HA-283";                       // Terra+ RIC-R, the Pair row (₹1,04,000)
+const ORION = ["HA-140", "HA-139", "HA-138", "HA-137"]; // C&G 50 / 75 / 100 / 200
+const SIRION = "HA-141";                     // Sirion Connect 75
+const UP = ["HA-275", "HA-271"];             // Audeo L30-R, Audeo I30-R
+
+const ids = [SKIP, ...ORION, SIRION, ...UP];
 const rows = await rest(
-  "hearing_aid_models?id=in.(HA-258,HA-257,HA-283)" +
-    "&select=id,model_name,mrp,unit,channels,rechargeable,warranty_years,fitting_min,fitting_max,bluetooth_type_id",
+  `hearing_aid_models?id=in.(${ids.join(",")})&select=id,model_name,mrp,unit,channels,rechargeable`,
 );
 const byId = new Map(rows.map((r) => [r.id, r]));
-const R312 = byId.get("HA-258");
-const RICR = byId.get("HA-257");
-const RICR_PAIR = byId.get("HA-283");
-
+const pair = (id) => {
+  const m = byId.get(id);
+  return m.unit === "Pcs" ? m.mrp * 2 : m.mrp;
+};
 const inr = (n) => "₹" + Number(n).toLocaleString("en-IN");
+const SKIP_PRICE = pair(SKIP);
 
-// Pair price: the REAL bundle row if one exists, otherwise twice the single
-// price. `bundled` drives the footnote, so the board never implies a bundle
-// that Phonak does not actually list.
-const pairOf = (pcs, pairRow) =>
-  pairRow ? { amount: pairRow.mrp, bundled: true } : { amount: pcs.mrp * 2, bundled: false };
+// Deltas are computed, never typed — they are the whole argument.
+const orionLow = Math.min(...ORION.map(pair));
+const orionHigh = Math.max(...ORION.map(pair));
+const saveMax = SKIP_PRICE - orionLow;
+const saveMin = SKIP_PRICE - orionHigh;
+const sirionSave = SKIP_PRICE - pair(SIRION);
+const upLow = Math.min(...UP.map(pair));
 
-const COLS = [
+// GUARD — the board's premise is that the skip device costs MORE than the
+// alternatives. If a repricing ever breaks that, fail rather than mislead.
+if (saveMin <= 0 || sirionSave <= 0) {
+  throw new Error(
+    `dontbuy: the board claims the Orion/Sirion routes are cheaper than ${inr(SKIP_PRICE)}, ` +
+      `but the catalogue now says Orion tops out at ${inr(orionHigh)} and Sirion is ${inr(pair(SIRION))}.`,
+  );
+}
+
+// ── art ──────────────────────────────────────────────────────────────────────
+const phonakArt = async (id) => renderDataUri(byId.get(id).model_name, { size: 420 });
+const signiaArt = async (id) => {
+  const hero = await rest(`model_images?model_id=eq.${id}&role=eq.hero&select=images(bucket,path)`);
+  const im = hero[0]?.images;
+  if (!im) return null;
+  const buf = await storageBuffer(im.bucket, im.path);
+  if (!buf) return null;
+  // webp -> PNG: the plugin's createImage will not take webp
+  return { uri: await pngDataUri(buf, (s) => s.trim({ threshold: 12 }).resize(420, 420, { fit: "inside" })) };
+};
+
+const artSkip = await phonakArt(SKIP);
+const artOrion = await signiaArt(ORION[0]);
+const artSirion = await signiaArt(SIRION);
+const artUp = await phonakArt(UP[1]);
+
+// ── the three routes ─────────────────────────────────────────────────────────
+const ROUTES = [
   {
-    m: R312,
-    name: "Terra+ RIC-312",
-    sub: "disposable battery",
-    pair: pairOf(R312, null),
+    want: "Rechargeable",
+    brand: "SIGNIA",
+    name: "Orion C&G",
+    chips: ["50", "75", "100", "200"],
+    price: `${inr(orionLow)} to ${inr(orionHigh)}`,
+    delta: `${inr(saveMin)} to ${inr(saveMax)} less`,
+    good: true,
+    trade: "No Bluetooth",
+    art: artOrion,
+    scale: 0.84,
   },
   {
-    m: RICR,
-    name: "Terra+ RIC-R",
-    sub: "rechargeable",
-    pair: pairOf(RICR, RICR_PAIR),
-    flagged: true,
+    want: "Bluetooth",
+    brand: "SIGNIA",
+    name: "Sirion Connect 75",
+    chips: [`${byId.get(SIRION).channels} channels`],
+    price: inr(pair(SIRION)),
+    delta: `${inr(sirionSave)} less`,
+    good: true,
+    trade: "Battery, not rechargeable",
+    art: artSirion,
+    scale: 0.84,
   },
-];
-
-// Everything that does NOT change. Printed in full: the argument is the sameness.
-const SAME = [
-  ["Platform", "Terra (T)"],
-  ["Channels", `${R312.channels}`],
-  ["Bluetooth", "Universal"],
-  ["Fitting range", `${R312.fitting_min} to ${R312.fitting_max} dB`],
-  ["Warranty", `${R312.warranty_years} years`],
+  {
+    want: "All of it",
+    brand: "PHONAK",
+    name: "Audeo L30-R or I30-R",
+    chips: ["Lumity", "Infinio"],
+    price: `from ${inr(upLow)}`,
+    delta: "Pay more, move a whole platform",
+    good: false,
+    trade: "Sound, rechargeable and Bluetooth, together",
+    art: artUp,
+    scale: 0.84,
+    hot: true,
+  },
 ];
 
 // ── layout ───────────────────────────────────────────────────────────────────
 const PAD = 56;
-const W = 1320;
-const inner = W - PAD * 2;
+const GAP = 26;
+const CARDW = 412;
+const W = PAD * 2 + 3 * CARDW + 2 * GAP;
 
-const head = boardHeader({
-  kicker: "THE ONE WE TALK YOU OUT OF",
-  title: "₹20,000 more, for a battery",
-  sub: "Everything else on these two is identical. Every single thing.",
-  inner,
-});
+const T = 250;
+const SKIP_H = 208;
+const ASK_T = T + SKIP_H + 42;
+const CARD_T = ASK_T + 66;
+const SLOT = CARDW - 120;
 
-const GAP = 28;
-const CARDW = (inner - GAP) / 2;
-const CARD_T = head.contentT + 22;
-const CARDH = 198;
-
-const SAME_T = CARD_T + CARDH + 34;
-const SAME_H = 96;
-const FOOT_T = SAME_T + SAME_H + 40;
-const H = FOOT_T + 46 + PAD;
+// Card height is MEASURED from the stack below the image — header, chips, price,
+// delta, then the trade strip. Guessing it put the strip on top of the price.
+//   image bottom -> brand 42 · name +26 · chips +40..66 · price +104 · delta +130
+const tradeLines = ROUTES.map((r) => wrap(r.trade, CARDW - 76, 13.5, 0.55));
+const maxTrade = Math.max(...tradeLines.map((l) => l.length));
+const TRADE_H = maxTrade * 18 + 26;
+const CARDH = SLOT + 130 + 150 + 22 + TRADE_H + 20;
+const H = CARD_T + CARDH + 76 + PAD;
 
 const g = [];
 g.push(`<rect x="0" y="0" width="${W}" height="${H}" fill="${PAPER}"/>`);
-g.push(...head.nodes);
 
-// ── the two cards ────────────────────────────────────────────────────────────
-COLS.forEach((c, i) => {
+const kicker = "THE ONE WE TALK YOU OUT OF";
+const kw = kicker.length * 12 * 0.62 + 36;
+g.push(`<rect x="${PAD}" y="60" width="${kw}" height="34" rx="17" fill="${YELLOW_LIGHT}"/>`);
+g.push(mtext(PAD + kw / 2, 77, kicker, 12, UI, 700, YELLOW_DARK));
+g.push(text(PAD, 158, `${inr(SKIP_PRICE)} for a rechargeable?`, 46, DISP, 700, INK));
+g.push(`<rect x="${PAD}" y="174" width="72" height="7" rx="3.5" fill="${YELLOW}"/>`);
+g.push(text(PAD, 208, "There are three better ways to spend it.", 18, UI, 400, MUTED));
+
+// ── the device we skip ──────────────────────────────────────────────────────
+{
+  const m = byId.get(SKIP);
+  g.push(`<rect x="${PAD}" y="${T}" width="${W - PAD * 2}" height="${SKIP_H}" rx="22" fill="${WHITE}" stroke="${BORDER}" stroke-width="1.5"/>`);
+  g.push(imageSlot({ x: PAD + 24, y: T + 24, size: SKIP_H - 48, uri: artSkip?.uri, uriScale: scaleFor(artSkip) }));
+
+  const tx = PAD + 24 + (SKIP_H - 48) + 34;
+  g.push(text(tx, T + 62, "PHONAK", 11, UI, 700, SUBTLE));
+  g.push(text(tx, T + 100, m.model_name, 32, DISP, 700, INK));
+  g.push(text(tx, T + 128, `Rechargeable · Bluetooth · ${m.channels} channels · entry Terra platform`, 15, UI, 400, MUTED));
+
+  // the price, big and on the right — it is the problem
+  g.push(text(W - PAD - 34, T + 104, inr(SKIP_PRICE), 44, DISP, 700, INK, "end"));
+  g.push(text(W - PAD - 34, T + 132, "a pair, MRP", 14, UI, 400, SUBTLE, "end"));
+
+  const bw = 268;
+  g.push(`<rect x="${tx}" y="${T + 150}" width="${bw}" height="34" rx="17" fill="${YELLOW_LIGHT}"/>`);
+  g.push(mtext(tx + bw / 2, T + 167, "ENTRY PLATFORM, AT THIS MONEY", 11.5, UI, 700, YELLOW_DARK));
+}
+
+// ── the question ────────────────────────────────────────────────────────────
+g.push(htext(W / 2, ASK_T + 22, "So what do you actually want?", 24, DISP, 700, INK));
+g.push(`<path d="M ${W / 2 - 11} ${ASK_T + 38} L ${W / 2} ${ASK_T + 50} L ${W / 2 + 11} ${ASK_T + 38}" fill="none" stroke="${YELLOW}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`);
+
+// ── the three routes ────────────────────────────────────────────────────────
+ROUTES.forEach((r, i) => {
   const x = PAD + i * (CARDW + GAP);
-  const flagged = !!c.flagged;
-
   g.push(
-    `<rect x="${x}" y="${CARD_T}" width="${CARDW}" height="${CARDH}" rx="20" fill="${WHITE}" stroke="${flagged ? YELLOW : BORDER}" stroke-width="${flagged ? 2.5 : 1.5}"/>`,
+    `<rect x="${x}" y="${CARD_T}" width="${CARDW}" height="${CARDH}" rx="22" fill="${r.hot ? YELLOW_LIGHT : WHITE}" stroke="${r.hot ? YELLOW : BORDER}" stroke-width="${r.hot ? 2.5 : 1.5}"/>`,
   );
 
-  let ty = CARD_T + 48;
-  g.push(text(x + 26, ty, c.name, 25, DISP, 700, INK));
-  g.push(text(x + 26, ty + 24, c.sub, 14, UI, 500, flagged ? YELLOW_DARK : SUBTLE));
+  // what you want — the header, biggest label on the card
+  g.push(htext(x + CARDW / 2, CARD_T + 50, r.want.toUpperCase(), 20, DISP, 700, r.hot ? YELLOW_DARK : INK));
+  g.push(`<line x1="${x + 34}" y1="${CARD_T + 70}" x2="${x + CARDW - 34}" y2="${CARD_T + 70}" stroke="${r.hot ? YELLOW : BORDER}" stroke-width="1"/>`);
 
-  // BOTH prices, side by side. Neither is derived from the other on screen.
-  const py = ty + 68;
-  g.push(text(x + 26, py, inr(c.m.mrp), 30, DISP, 700, INK));
-  g.push(text(x + 26, py + 22, "MRP, a single aid", 12.5, UI, 400, SUBTLE));
+  g.push(imageSlot({ x: x + (CARDW - SLOT) / 2, y: CARD_T + 88, size: SLOT, uri: r.art?.uri, uriScale: r.scale, tone: r.hot ? "hot" : "neutral" }));
 
-  const px2 = x + CARDW / 2 + 14;
-  g.push(text(px2, py, inr(c.pair.amount), 30, DISP, 700, INK));
-  g.push(
-    text(px2, py + 22, c.pair.bundled ? "MRP, a pair (bundle)" : "MRP, a pair (2 x single)", 12.5, UI, 400, SUBTLE),
+  let ty = CARD_T + 88 + SLOT + 42;
+  g.push(htext(x + CARDW / 2, ty, r.brand, 10.5, UI, 700, SUBTLE));
+  g.push(htext(x + CARDW / 2, ty + 26, r.name, 21, DISP, 700, INK));
+
+  // tier chips
+  const cw = 52, cg = 8;
+  const totalW = r.chips.length * cw + (r.chips.length - 1) * cg;
+  let cxp = x + CARDW / 2 - totalW / 2;
+  r.chips.forEach((c) => {
+    const w = Math.max(cw, c.length * 12 * 0.6 + 22);
+    g.push(`<rect x="${cxp}" y="${ty + 40}" width="${w}" height="26" rx="13" fill="none" stroke="${r.hot ? YELLOW : BORDER}" stroke-width="1.5"/>`);
+    g.push(mtext(cxp + w / 2, ty + 53, c, 12, UI, 700, r.hot ? YELLOW_DARK : SUBTLE));
+    cxp += w + cg;
+  });
+
+  // the number that makes the argument
+  g.push(htext(x + CARDW / 2, ty + 104, r.price, 24, DISP, 700, INK));
+  g.push(htext(x + CARDW / 2, ty + 130, r.delta, 14.5, UI, 700, r.good ? YELLOW_DARK : SUBTLE));
+
+  // the one honest trade, in a strip so it cannot be missed
+  const tl = tradeLines[i];
+  const tt = CARD_T + CARDH - TRADE_H - 20;
+  g.push(`<rect x="${x + 24}" y="${tt}" width="${CARDW - 48}" height="${TRADE_H}" rx="12" fill="${r.hot ? WHITE : PAPER}"/>`);
+  tl.forEach((ln, li) =>
+    g.push(htext(x + CARDW / 2, tt + 22 + li * 18, ln, 13.5, UI, 600, r.hot ? YELLOW_DARK : SUBTLE)),
   );
-
-  if (flagged) {
-    const rw = 132;
-    g.push(`<rect x="${x + CARDW - rw - 20}" y="${CARD_T + CARDH - 46}" width="${rw}" height="30" rx="15" fill="${YELLOW}"/>`);
-    g.push(mtext(x + CARDW - rw / 2 - 20, CARD_T + CARDH - 31, "WE SAY SKIP IT", 10.5, UI, 700, YELLOW_DARK));
-  }
 });
 
-// the delta, sitting in the gutter between the two cards
-const gx = PAD + CARDW + GAP / 2;
-g.push(`<circle cx="${gx}" cy="${CARD_T + CARDH / 2}" r="27" fill="${YELLOW}"/>`);
-g.push(mtext(gx, CARD_T + CARDH / 2, "+₹20k", 13, DISP, 700, YELLOW_DARK));
+g.push(text(PAD, CARD_T + CARDH + 48, "Three of these four cost less than the one we are telling you to skip. MRP, a pair.", 15, UI, 400, SUBTLE));
 
-// ── the "nothing else changes" band ─────────────────────────────────────────
-g.push(`<rect x="${PAD}" y="${SAME_T}" width="${inner}" height="${SAME_H}" rx="18" fill="${YELLOW_LIGHT}"/>`);
-g.push(text(PAD + 28, SAME_T + 32, "IDENTICAL ON BOTH", 11.5, UI, 700, YELLOW_DARK));
-let sx = PAD + 28;
-SAME.forEach(([k, v], i) => {
-  const label = `${k} ${v}`;
-  g.push(ltext(sx, SAME_T + 66, k, 13, UI, 500, YELLOW_DARK));
-  const kw = k.length * 13 * 0.52;
-  g.push(ltext(sx + kw + 8, SAME_T + 66, v, 17, DISP, 700, YELLOW_DARK));
-  sx += kw + 8 + v.length * 17 * 0.56 + 34;
-  if (i < SAME.length - 1) g.push(`<circle cx="${sx - 19}" cy="${SAME_T + 66}" r="2.5" fill="${YELLOW_DARK}"/>`);
-});
-
-// ── footnote: says exactly what each pair figure is ─────────────────────────
-g.push(text(PAD, FOOT_T, "Pair price is Phonak's own bundle where one is listed, otherwise twice the single price.", 14, UI, 400, MUTED));
-g.push(text(PAD, FOOT_T + 26, "Want rechargeable properly? That conversation starts at Audeo L30-R, a whole platform up.", 15.5, UI, 600, YELLOW_DARK));
-
-writeBoard(OUT, { w: W, h: H, body: g.join("\n") });
+writeBoard(OUT, { w: W, h: H, xlink: true, body: g.join("\n") });

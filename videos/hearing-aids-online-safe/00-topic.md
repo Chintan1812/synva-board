@@ -84,6 +84,23 @@ Hearing Aid Official 3,670 · Hearing Aid Updates 3,110.
 **Read: on long form Synva is the strongest independent voice in this Indian set, not
 the underdog.** What needs closing is volume and consistency, not credibility.
 
+> ⚠️ **CORRECTED 2026-08-13 — this read was wrong, because the set was incomplete.**
+> A strict `vidiq_outliers` sweep constrained to `channelCountry: "IN"` surfaced a
+> channel this pass never found: **Gore hearing and speech clinic, Pune**
+> (`UC2ScuDkp49gA45XsNSQ8hLg`), 5,150 subs, same single-audiologist explainer format.
+> Its long form runs to **262,847** and **156,245** views against Synva's best of
+> 15,637. It is not a bigger channel; it is a smaller channel with a ~20x bigger
+> ceiling, and the difference is **Devanagari titles built on कान की मशीन**, not
+> production. Full table and the vocabulary evidence: the 2026-08-13 addendum in
+> [TOPIC-SLATE.md](../TOPIC-SLATE.md).
+>
+> **Directly relevant to this video:** Gore's *"Online Hearing Aids | Cheapest Hearing
+> Aids | Hearing Aids on Amazon, Flipkart and IndiaMart"* did **31,429 views** on the
+> same zero keyword volume measured below. That **confirms** the call to make this
+> despite the zeros, and it means the topic is already served by the strongest channel
+> in the set, so the symptom-first door chosen at the bottom of this file is now
+> load-bearing rather than merely preferable.
+
 ---
 
 SYNVA'S OWN WINNING CLUSTERS (by breakoutScore, long form)

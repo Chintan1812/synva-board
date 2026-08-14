@@ -2,8 +2,21 @@
 //
 // WHAT THIS BOARD SHOWS: at ~₹50,000 a pair after discount you can buy a Phonak
 // Terra, a Signia Orion C&G 50, or a Signia Sirion Connect 75. Same money. The
-// board's whole job is to make one thing unmissable: Terra is the only one that
-// gives you NEITHER rechargeable NOR Bluetooth.
+// board's whole job is to make ONE cell unmissable: Terra is the only one of the
+// three you cannot control from your phone.
+//
+// ⚠️ WARRANTY WAS DROPPED (Chintan, 2026-08-13) and replaced by MOBILE APP
+// CONTROL. Warranty is 2 years on all three, so the row carried no information;
+// rule 6a wants the ~5 manufacturer specs that actually VARY. App control is the
+// new payoff of the hook's open loop, replacing the retracted Bluetooth claim.
+//
+// THE INVERSION THIS BOARD MUST SURVIVE: Orion has NO Bluetooth yet DOES have
+// app control, because the Signia app pairs to it ACOUSTICALLY (the phone emits
+// a high-frequency tone in a quiet room; verified on camera in Chintan's own
+// "Connecting Your Signia Orion C&G Hearing Aids to the App", FQoh9S83M-M).
+// A viewer reading "Bluetooth: none" next to "App control: yes" will ask how, so
+// the CELLS say how: "pairs by sound" vs "over Bluetooth". Do not shorten them
+// to a bare tick.
 //
 // CROSS-BRAND RULE (research §4c): Phonak and Signia name the same capabilities
 // differently, so a vendor-feature matrix across brands is misleading. Every row
@@ -46,9 +59,28 @@ const rows = await rest(
 );
 const byId = new Map(rows.map((r) => [r.id, r]));
 
-// Bluetooth is the row the whole board turns on, so it is stated in plain
-// language rather than the vendor's protocol name (ASHA + MFi / Universal).
-const BT = { "HA-262": null, "HA-140": null, "HA-141": "Phone + TV" };
+// Bluetooth is stated in plain language rather than the vendor's protocol name
+// (ASHA + MFi / Universal), because the protocol name hides what actually differs.
+// ⚠️ CORRECTED 2026-08-12: Terra DOES have Bluetooth. The DB had it as BLT-0005
+// "None"; Phonak's own Product Information sheet lists Bluetooth on every Terra
+// and Terra+ body, and the DB was fixed the same day. What Terra genuinely lacks
+// is the ECOSYSTEM: no myPhonak app, no TV Connector, no PartnerMic, no
+// RemoteControl. It streams phone calls and media speech, and that is all.
+// So the honest cell is "Phone calls", not a cross.
+const BT = { "HA-262": "Phone calls", "HA-140": null, "HA-141": "Phone + TV" };
+
+// Mobile app control — volume + program change from the phone.
+//   Terra   : no myPhonak at all. Phonak's own Product Information sheet lists
+//             "myPhonak •" in the Terra+ column ONLY, footnote "* Phonak Terra+
+//             only". Terra's only control is the button on the aid, with
+//             QuickSync mirroring it to the other ear.
+//   Orion 50: Signia app via ACOUSTIC pairing, no Bluetooth involved.
+//   Sirion75: Signia app over its real Bluetooth (ASHA + MFi).
+const APP = {
+  "HA-262": null,
+  "HA-140": "Yes, pairs by sound",
+  "HA-141": "Yes, over Bluetooth",
+};
 
 const inr = (n) => "₹" + Number(n).toLocaleString("en-IN");
 const pairMrp = (m) => (m.unit === "Pcs" ? m.mrp * 2 : m.mrp);
@@ -67,7 +99,7 @@ const SPEC = [
   { label: "Channels", sub: "sound processing detail", kind: "num", get: (m) => m.channels },
   { label: "Bluetooth", sub: "phone calls, TV, streaming", kind: "bt" },
   { label: "Rechargeable", sub: "charge it, or change batteries", kind: "rech" },
-  { label: "Warranty", sub: "years covered", kind: "warranty", get: (m) => m.warranty_years },
+  { label: "Mobile app control", sub: "change volume and programs from your phone", kind: "app" },
 ];
 
 const cardH = HEADH + SPEC.length * ROWH;
@@ -103,7 +135,7 @@ g.push(`<rect x="0" y="0" width="${W}" height="${H}" fill="${PAPER}"/>`);
 
 g.push(text(PAD, 62, "At this budget, you have three options", 38, DISP, 700, INK));
 g.push(`<rect x="${PAD}" y="76" width="64" height="7" rx="3.5" fill="${YELLOW}"/>`);
-g.push(text(PAD, 112, "Near enough the same MRP. Two things separate them.", 17, UI, 400, MUTED));
+g.push(text(PAD, 112, "Near enough the same MRP. Each one asks you to give something up.", 17, UI, 400, MUTED));
 
 // card + zebra + best-seller column tint
 g.push(`<rect x="${cardX}" y="${T}" width="${cardW}" height="${cardH}" rx="22" fill="${WHITE}"/>`);
@@ -162,7 +194,14 @@ SPEC.forEach((r, ri) => {
         g.push(htext(x, cy + 26, "change batteries", 12.5, UI, 600, SUBTLE));
       }
     } else {
-      g.push(htext(x, cy + 8, r.get(m) + " years", 18, UI, 600, BODY));
+      // kind === "app"
+      if (APP[c.id]) {
+        g.push(tick(x, cy - 6));
+        g.push(htext(x, cy + 26, APP[c.id], 12.5, UI, 500, BODY));
+      } else {
+        g.push(cross(x, cy - 6));
+        g.push(htext(x, cy + 26, "none", 12.5, UI, 600, SUBTLE));
+      }
     }
   });
   if (ri < SPEC.length - 1)

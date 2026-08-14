@@ -2,7 +2,7 @@
 <rect x="0" y="0" width="1192" height="930" fill="#FAF8F4"/>
 <text x="56" y="62" font-family="Bricolage Grotesque" font-size="38" font-weight="700" fill="#1A1A1A">At this budget, you have three options</text>
 <rect x="56" y="76" width="64" height="7" rx="3.5" fill="#FBD34A"/>
-<text x="56" y="112" font-family="Inter" font-size="17" font-weight="400" fill="#4F4F4F">Near enough the same MRP. Two things separate them.</text>
+<text x="56" y="112" font-family="Inter" font-size="17" font-weight="400" fill="#4F4F4F">Near enough the same MRP. Each one asks you to give something up.</text>
 <rect x="56" y="150" width="1080" height="538" rx="22" fill="#FFFFFF"/>
 <rect x="57.5" y="376" width="1077" height="78" fill="#FAF8F4"/>
 <rect x="57.5" y="532" width="1077" height="78" fill="#FAF8F4"/>
@@ -39,8 +39,8 @@
 <line x1="56" y1="454" x2="1136" y2="454" stroke="#E8E4DC" stroke-width="1"/>
 <text x="84" y="489" font-family="Inter" font-size="17.5" font-weight="600" fill="#1A1A1A">Bluetooth</text>
 <text x="84" y="510" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">phone calls, TV, streaming</text>
-<circle cx="511" cy="487" r="17" fill="none" stroke="#E8E4DC" stroke-width="2"/><path d="M 505 481 L 517 493 M 517 481 L 505 493" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round"/>
-<text x="511" y="519" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="600" fill="#6B6B6B">none</text>
+<circle cx="511" cy="487" r="17" fill="#FBD34A"/><path d="M 504 487 l 4.5 5 l 9 -10" fill="none" stroke="#4C3205" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="511" y="519" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="500" fill="#3A3A3A">Phone calls</text>
 <circle cx="761" cy="487" r="17" fill="none" stroke="#E8E4DC" stroke-width="2"/><path d="M 755 481 L 767 493 M 767 481 L 755 493" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round"/>
 <text x="761" y="519" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="600" fill="#6B6B6B">none</text>
 <circle cx="1011" cy="487" r="17" fill="#FBD34A"/><path d="M 1004 487 l 4.5 5 l 9 -10" fill="none" stroke="#4C3205" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -55,11 +55,14 @@
 <circle cx="1011" cy="565" r="17" fill="none" stroke="#E8E4DC" stroke-width="2"/><path d="M 1005 559 L 1017 571 M 1017 559 L 1005 571" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round"/>
 <text x="1011" y="597" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="600" fill="#6B6B6B">change batteries</text>
 <line x1="56" y1="610" x2="1136" y2="610" stroke="#E8E4DC" stroke-width="1"/>
-<text x="84" y="645" font-family="Inter" font-size="17.5" font-weight="600" fill="#1A1A1A">Warranty</text>
-<text x="84" y="666" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">years covered</text>
-<text x="511" y="657" text-anchor="middle" font-family="Inter" font-size="18" font-weight="600" fill="#3A3A3A">2 years</text>
-<text x="761" y="657" text-anchor="middle" font-family="Inter" font-size="18" font-weight="600" fill="#3A3A3A">2 years</text>
-<text x="1011" y="657" text-anchor="middle" font-family="Inter" font-size="18" font-weight="600" fill="#3A3A3A">2 years</text>
+<text x="84" y="645" font-family="Inter" font-size="17.5" font-weight="600" fill="#1A1A1A">Mobile app control</text>
+<text x="84" y="666" font-family="Inter" font-size="12.5" font-weight="400" fill="#6B6B6B">change volume and programs from your phone</text>
+<circle cx="511" cy="643" r="17" fill="none" stroke="#E8E4DC" stroke-width="2"/><path d="M 505 637 L 517 649 M 517 637 L 505 649" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round"/>
+<text x="511" y="675" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="600" fill="#6B6B6B">none</text>
+<circle cx="761" cy="643" r="17" fill="#FBD34A"/><path d="M 754 643 l 4.5 5 l 9 -10" fill="none" stroke="#4C3205" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="761" y="675" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="500" fill="#3A3A3A">Yes, pairs by sound</text>
+<circle cx="1011" cy="643" r="17" fill="#FBD34A"/><path d="M 1004 643 l 4.5 5 l 9 -10" fill="none" stroke="#4C3205" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1011" y="675" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="500" fill="#3A3A3A">Yes, over Bluetooth</text>
 <rect x="56" y="150" width="1080" height="538" rx="22" fill="none" stroke="#E8E4DC" stroke-width="1.5"/>
 <rect x="56" y="722" width="1080" height="152" rx="22" fill="#FAF8F4" stroke="#E8E4DC" stroke-width="1.5"/>
 <text x="84" y="764" font-family="Bricolage Grotesque" font-size="20" font-weight="700" fill="#1A1A1A">Synva's assessment</text>

@@ -7,15 +7,18 @@
 // argument board — a reference. So every device gets a picture, a body, and its
 // MRP, and nothing gets a verdict except the two that carry one.
 //
-// ⚠️ PLACEMENT IS BY REAL PAIR MRP, NOT BY NAME. This matters for one device:
-// **Terra+ RIC-R is ₹1,04,000 a pair**, so it sits on the ₹1,00,000 shelf, next
-// to real ₹1,00,000 devices — on the entry Terra platform, with 10 channels,
-// beside twelve-channel Infinio. That placement IS the `dontbuy` argument, made
-// visible before he even makes it. Do not "tidy" it onto the Terra shelf.
+// ⚠️ TERRA+ APPEARS ON BOTH SHELVES, DELIBERATELY (Chintan, 2026-07-29).
+// On the ₹50,000 board it is shown and then EXPLICITLY DEFERRED — "we deal with
+// these in the ₹1,00,000 segment" — because that is what he says on camera. It
+// then gets its proper treatment on the ₹1,00,000 board as THE ODD ONES OUT.
+// This is a forward reference, not a duplication. Keep both, and keep the ₹50k
+// note pointing forward, or the ₹1L group arrives with no setup.
 //
-// The rest of Terra+ (₹84,000) stays on the ₹50,000 shelf but is visibly the
-// upper row, which is the honest picture: it has left the band without arriving
-// anywhere.
+// The odd-ones-out group is ordered RIC-312, RIC-R, then the three BTEs, so the
+// rechargeable premium reads straight across: ₹84,000 battery beside ₹1,04,000
+// rechargeable, the same aid otherwise. Terra+ RIC-R genuinely IS ₹1,04,000 a
+// pair — entry platform, 10 channels, sitting next to twelve-channel Infinio.
+// That placement is the `dontbuy` argument made visible before he makes it.
 //
 // Renders are the real Phonak ones, black where offered, and SCALED by form
 // factor (scaleFor) so a custom does not render bigger than a BTE.
@@ -41,12 +44,12 @@ const SHELVES = [
     groups: [
       {
         name: "TERRA",
-        note: "the entry platform · 8 channels · no Bluetooth · disposable battery",
+        note: "the entry platform · 8 channels · Bluetooth for calls · disposable battery",
         ids: ["HA-262", "HA-263", "HA-264", "HA-265"],
       },
       {
         name: "TERRA+",
-        note: "same platform, 10 channels, and Bluetooth · already above the band",
+        note: "same platform, 10 channels, plus the app and TV Connector · we deal with these in the ₹1,00,000 segment",
         ids: ["HA-258", "HA-259", "HA-260", "HA-261"],
       },
     ],
@@ -58,9 +61,11 @@ const SHELVES = [
     sub: "Two platforms, four bodies. Prices are MRP for a pair.",
     groups: [
       {
-        name: "THE ODD ONE OUT",
-        note: "entry platform, at this money",
-        ids: ["HA-257"],
+        // The RICs lead so the rechargeable premium reads straight across:
+        // ₹84,000 battery next to ₹1,04,000 rechargeable, same aid otherwise.
+        name: "THE ODD ONES OUT",
+        note: "Terra+ · the entry platform, priced between the two bands",
+        ids: ["HA-258", "HA-257", "HA-259", "HA-260", "HA-261"],
         warn: true,
       },
       {

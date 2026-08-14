@@ -1,8 +1,19 @@
 // TURN 50 board -> the turn, at ~33%. The re-engagement beat of the first half.
 //
 // WHAT THIS BOARD SHOWS: the honest verdict at this budget. Rechargeable exists
-// here. Bluetooth exists here. Phonak's device at this price has neither. Said
+// here. 12 channels exist here. Phonak's device at this price has neither. Said
 // once, plainly, then the video moves up to ₹1,00,000 where Phonak earns it.
+//
+// ⚠️ CORRECTED 2026-08-12: this board used to say "No Bluetooth" of Terra. That
+// was wrong — the DB carried BLT-0005 "None" and Phonak's own Product
+// Information sheet lists Bluetooth on every Terra body. Terra streams phone
+// calls; what it lacks is the myPhonak app, the TV Connector and PartnerMic.
+// The turn now runs on rechargeable + channels, both manufacturer-verifiable.
+//
+// REPOSITIONED 2026-08-13 (Chintan): the hook's open loop is now MOBILE APP
+// CONTROL, so Terra's row leads with that, not with Bluetooth. Verified: Phonak
+// lists myPhonak for Terra+ only; both Signias reach the Signia app (Orion
+// acoustically, with no Bluetooth at all). See make-band50.mjs.
 //
 // This is NOT a Signia-vs-Phonak board (research §4-FRAME). It names two Signia
 // models because the Phonak analysis forces it, then moves on. No comparison
@@ -27,13 +38,13 @@ const card = calloutCard({
       tone: "yes",
     },
     {
-      label: "Want Bluetooth?",
-      note: "Signia Sirion 75. Same money, and 12 channels instead of 8.",
+      label: "Want 12 channels?",
+      note: "Signia Sirion 75. Same money, 12 channels instead of 8, and it streams to the app and the TV.",
       tone: "yes",
     },
     {
       label: "Phonak Terra",
-      note: "8 channels. No Bluetooth. No rechargeable. At the same price as both of the above.",
+      note: "8 channels. Not rechargeable. And the only one here you cannot control from your phone.",
       tone: "no",
     },
   ],

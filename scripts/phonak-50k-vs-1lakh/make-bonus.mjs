@@ -1,38 +1,40 @@
-// BONUS board -> the 6-question self-check, at 70%. The promise from the hook,
-// delivered.
+// BONUS board -> the tool, promised at 70%. A POINTER, NOT A SPEC.
 //
-// WHAT THIS BOARD SHOWS: the six questions going in, and the two answers coming
-// back. Copy only — the tool itself is a website job, not a board job.
+// ⚠️ REBUILT 2026-08-13 (Chintan: "now that the website has the live Phonak tool
+// ready, create the board according to that only. Keep it brief and point it out
+// to the website so I can show it there directly").
 //
-// ⚠️ THE HONEST "NO" IS THE WHOLE POINT, so it gets the largest type on the
-// board. The tool's first output is *"is Phonak right for you at all?"* and that
-// answer **can be no**. Chintan changed the output to this on 2026-07-29 and it
-// is structurally load-bearing: the two `cheezein` (no BTE on the latest
-// platform; invisible plus rechargeable) are precisely the cases where the tool
-// must say no. So the tool reproduces the video's honesty mechanically instead of
-// Synva asserting it. No competitor ships a tool that talks people out of their
-// own brand. If a later edit softens this into "find your perfect Phonak", the
-// bonus has lost the only thing that makes it worth a phone number.
+// THE BLOCKER IS GONE. Every earlier version of this board was written around a
+// page that did not exist yet, which forced two compromises:
+//   • the URL had to stay a generic "synva.io", because naming a slug that would
+//     404 on camera is worse than naming nothing;
+//   • the questions could not be shown, because unbuilt copy would have become a
+//     promise nobody agreed to.
+// The page is now LIVE at /phonak-hearing-aid-recommendation, so both are lifted
+// and every line below is copied from the real page, not invented here.
 //
-// Q4 (rechargeable) and Q5 (invisible) are flagged on the board because those
-// are exactly the two axes where Phonak loses. Showing which questions can
-// produce a "no" is what makes the promise credible rather than a funnel.
+// SOURCE OF TRUTH: the website's
+//   src/components/sections/recommend/data/recommend-data.ts  (RECOMMEND_HERO + steps)
+//   src/app/(marketing)/phonak-hearing-aid-recommendation/page.tsx  (the route)
+// The headline is the page's real H1 and the honesty line is its real promise.
+// If the page copy changes, change it HERE too, or the board starts lying.
 //
-// ⚠️⚠️ BLOCKED BEFORE RECORDING. The Knowledge Hub page and its gate must be
-// LIVE before Chintan says any of this on camera — the bonus is also teased
-// inside the hook, so the whole shoot waits on it. Three cheatsheets are already
-// promised on camera and unshipped (videos/TOPIC-SLATE.md); this must not become
-// the fourth. THE SLUG BELOW IS A PLACEHOLDER and must be confirmed against the
-// real page before the board is used.
+// THE BROWSER FRAME WAS DROPPED ON PURPOSE. It existed so Chintan could cover it
+// with a screen recording of a page that did not exist. He now cuts to the live
+// site instead, so the board's only job is to make the viewer want to go and to
+// show the address clearly. That is why it is short.
 //
-// The URL is its own text node so Figma can hyperlink it — same reason as the
-// CTA pill. Figma cannot attach a link to part of a string.
+// ⚠️ THE URL IS THE REAL ONE AND IT IS LONG. There is no shorter alias and no
+// redirect (checked next.config.ts). Do not shorten it to something prettier
+// that 404s. If a short alias is ever added, update URL_TEXT here.
 //
-// rule 1b — the board is ENGLISH even though Chintan asks these in Hindi.
-// Run: npm run board:phonak-bonus
+// ⚠️ THE HONEST "NO" STAYS. It is the only reason this tool is worth a click,
+// and softening it into "find your perfect Phonak" throws that away.
+//
+// rule 1b — English only. Run: npm run board:phonak-bonus
 import { boardOut } from "../../lib/paths.mjs";
 import { loadIcons } from "../../lib/icons.mjs";
-import { text, htext, mtext, ltext, wrap, writeBoard } from "../../lib/svg.mjs";
+import { text, htext, mtext, ltext, tw, writeBoard } from "../../lib/svg.mjs";
 import {
   INK, PAPER, WHITE, BORDER, MUTED, SUBTLE, BODY,
   YELLOW, YELLOW_LIGHT, YELLOW_DARK, DISP, UI,
@@ -40,122 +42,66 @@ import {
 
 const OUT = boardOut("phonak-50k-vs-1lakh", "bonus.svg");
 
-// ⚠️ PLACEHOLDER SLUG — confirm against the live page before recording.
-const URL_TEXT = "synva.io/knowledge-hub/phonak-check";
+// The live page. No alias exists — see the warning above.
+const URL_TEXT = "synva.io/phonak-hearing-aid-recommendation";
 
-// The six, in Chintan's order. `axis` marks the two that can produce a "no".
-const QUESTIONS = [
-  { q: "Are your days mostly at home, or mostly out?" },
-  { q: "Do you lose the thread in a restaurant or at a function?" },
-  { q: "Is the phone a big part of your day?" },
-  { q: "Changing batteries, or rechargeable?", axis: true },
-  { q: "Does it have to be invisible?", axis: true },
-  { q: "Is this for you, or for someone else?" },
+// The three real steps, in the page's own order and words.
+const STEPS = [
+  { n: "1", head: "Your hearing", sub: "Plot your audiogram, or just tell us honestly." },
+  { n: "2", head: "Your week", sub: "How you actually spend your days." },
+  { n: "3", head: "Who it is for", sub: "You, or someone you love." },
 ];
 
-const icon = await loadIcons(["arrow-up-right", "list-checks"]);
+const icon = await loadIcons(["arrow-up-right"]);
 
 // ── layout ───────────────────────────────────────────────────────────────────
 const PAD = 56;
-const GAP = 30;
-const LEFTW = 700, RIGHTW = 620;
-const W = PAD * 2 + LEFTW + GAP + RIGHTW;
-const T = 232;
+const W = 1300;
+const inner = W - PAD * 2;
 
-const qLines = QUESTIONS.map((x) => wrap(x.q, LEFTW - 130, 17, 0.55));
-const qH = qLines.map((l) => Math.max(58, l.length * 24 + 30));
-const leftH = 108 + qH.reduce((a, b) => a + b, 0) + 74;
+const STEP_T = 250;
+const STEP_H = 148;
+const GAP = 24;
+const STEPW = (inner - GAP * 2) / 3;
 
-const rightH = 108 + 400;
-const CARDH = Math.max(leftH, rightH);
+const ANS_T = STEP_T + STEP_H + 34;
+const ANS_H = 132;
 
-const URL_T = T + CARDH + 34;
-const URL_H = 96;
-const H = URL_T + URL_H + 68 + PAD;
+const LINK_T = ANS_T + ANS_H + 34;
+const LINK_H = 96;
+const H = LINK_T + LINK_H + PAD;
 
-// ── build ────────────────────────────────────────────────────────────────────
 const g = [];
 g.push(`<rect x="0" y="0" width="${W}" height="${H}" fill="${PAPER}"/>`);
 
-const kicker = "THE BONUS, AS PROMISED";
-const kw = kicker.length * 12 * 0.62 + 36;
+// ── header — the page's own eyebrow and H1 ──────────────────────────────────
+const kicker = "THE TOOL FROM THE VIDEO";
+const kw = tw(kicker, 12, 0.62) + 36;
 g.push(`<rect x="${PAD}" y="60" width="${kw}" height="34" rx="17" fill="${YELLOW_LIGHT}"/>`);
 g.push(mtext(PAD + kw / 2, 77, kicker, 12, UI, 700, YELLOW_DARK));
-g.push(text(PAD, 158, "Six questions. An honest answer.", 46, DISP, 700, INK));
+g.push(text(PAD, 158, "Is a Phonak hearing aid right for you?", 46, DISP, 700, INK));
 g.push(`<rect x="${PAD}" y="174" width="72" height="7" rx="3.5" fill="${YELLOW}"/>`);
-g.push(text(PAD, 206, "About your hearing and your life. No jargon, nothing to look up.", 18, UI, 400, MUTED));
+g.push(text(PAD, 208, "Three questions. Then a straight answer, in under a minute.", 18, UI, 400, MUTED));
 
-// ── left: the six questions ─────────────────────────────────────────────────
-{
-  const x = PAD;
-  g.push(`<rect x="${x}" y="${T}" width="${LEFTW}" height="${CARDH}" rx="22" fill="${WHITE}" stroke="${BORDER}" stroke-width="1.5"/>`);
-  g.push(text(x + 30, T + 48, "WHAT IT ASKS", 11.5, UI, 700, SUBTLE));
-  g.push(`<line x1="${x + 30}" y1="${T + 76}" x2="${x + LEFTW - 30}" y2="${T + 76}" stroke="${BORDER}" stroke-width="1"/>`);
+// ── the three questions it asks ─────────────────────────────────────────────
+STEPS.forEach((s, i) => {
+  const x = PAD + i * (STEPW + GAP);
+  g.push(`<rect x="${x}" y="${STEP_T}" width="${STEPW}" height="${STEP_H}" rx="20" fill="${WHITE}" stroke="${BORDER}" stroke-width="1.5"/>`);
+  g.push(`<circle cx="${x + 46}" cy="${STEP_T + 50}" r="20" fill="${YELLOW}"/>`);
+  g.push(mtext(x + 46, STEP_T + 50, s.n, 19, UI, 700, YELLOW_DARK));
+  g.push(ltext(x + 80, STEP_T + 50, s.head, 25, DISP, 700, INK));
+  g.push(text(x + 30, STEP_T + 104, s.sub, 15, UI, 400, MUTED));
+});
 
-  let y = T + 108;
-  QUESTIONS.forEach((item, i) => {
-    const cy = y + 18;
-    g.push(`<circle cx="${x + 52}" cy="${cy}" r="17" fill="${item.axis ? YELLOW : PAPER}"/>`);
-    g.push(mtext(x + 52, cy, String(i + 1), 15, UI, 700, item.axis ? YELLOW_DARK : SUBTLE));
-    qLines[i].forEach((ln, li) =>
-      g.push(ltext(x + 84, cy - ((qLines[i].length - 1) * 24) / 2 + li * 24, ln, 17, UI, 500, INK)),
-    );
-    y += qH[i];
-  });
+// ── what comes back — the honest NO is the differentiator ───────────────────
+g.push(`<rect x="${PAD}" y="${ANS_T}" width="${inner}" height="${ANS_H}" rx="20" fill="${YELLOW_LIGHT}" stroke="${YELLOW}" stroke-width="2"/>`);
+g.push(text(PAD + 34, ANS_T + 46, "You get named models, at your budget, for your life.", 24, DISP, 700, INK));
+g.push(text(PAD + 34, ANS_T + 84, "And if another brand fits you better, we say that too.", 19, UI, 600, YELLOW_DARK));
+g.push(text(PAD + 34, ANS_T + 110, "That is the whole point of it.", 14, UI, 400, BODY));
 
-  // why two of them are lit
-  const note = "Four and five are the two where Phonak can lose. That is on purpose.";
-  g.push(`<rect x="${x + 24}" y="${T + CARDH - 66}" width="${LEFTW - 48}" height="44" rx="14" fill="${YELLOW_LIGHT}"/>`);
-  g.push(ltext(x + 44, T + CARDH - 44, note, 14, UI, 600, YELLOW_DARK));
-}
-
-// ── right: what comes back ──────────────────────────────────────────────────
-{
-  const x = PAD + LEFTW + GAP;
-  g.push(`<rect x="${x}" y="${T}" width="${RIGHTW}" height="${CARDH}" rx="22" fill="${YELLOW_LIGHT}" stroke="${YELLOW}" stroke-width="2.5"/>`);
-  g.push(text(x + 30, T + 48, "WHAT COMES BACK", 11.5, UI, 700, YELLOW_DARK));
-  g.push(`<line x1="${x + 30}" y1="${T + 76}" x2="${x + RIGHTW - 30}" y2="${T + 76}" stroke="${YELLOW}" stroke-width="1"/>`);
-
-  // output 1 — the honest no, given the most weight on the board
-  g.push(mtext(x + 52, T + 128, "1", 15, UI, 700, YELLOW_DARK));
-  g.push(`<circle cx="${x + 52}" cy="${T + 128}" r="17" fill="none" stroke="${YELLOW_DARK}" stroke-width="2"/>`);
-  g.push(ltext(x + 84, T + 128, "Is a Phonak right for you at all?", 22, DISP, 700, INK));
-
-  // "NO" gets its own line and the biggest type in the panel. Inline it ran
-  // straight into the preceding word, and it is the point of the whole tool.
-  g.push(`<rect x="${x + 30}" y="${T + 158}" width="${RIGHTW - 60}" height="118" rx="16" fill="${WHITE}" stroke="${YELLOW_DARK}" stroke-width="2"/>`);
-  g.push(ltext(x + 52, T + 184, "And the answer can be", 15, UI, 500, BODY));
-  g.push(ltext(x + 52, T + 222, "NO", 42, DISP, 700, INK));
-  g.push(ltext(x + 52, T + 256, "Two of these questions have no Phonak answer.", 13.5, UI, 400, SUBTLE));
-
-  // output 2
-  g.push(mtext(x + 52, T + 326, "2", 15, UI, 700, YELLOW_DARK));
-  g.push(`<circle cx="${x + 52}" cy="${T + 326}" r="17" fill="none" stroke="${YELLOW_DARK}" stroke-width="2"/>`);
-  g.push(ltext(x + 84, T + 326, "If it is, which ones are yours", 22, DISP, 700, INK));
-  g.push(ltext(x + 84, T + 356, "Named models, at your budget, for your life.", 14.5, UI, 400, YELLOW_DARK));
-
-  // A worked "no", so the promise is demonstrated rather than asserted. This is
-  // one of the two cheezein, which is why the tool can produce it at all.
-  const exH = 96;
-  const exT = T + CARDH - exH - 22;
-  g.push(`<rect x="${x + 30}" y="${exT}" width="${RIGHTW - 60}" height="${exH}" rx="16" fill="${WHITE}"/>`);
-  g.push(ltext(x + 52, exT + 26, "WHAT A NO LOOKS LIKE", 10.5, UI, 700, SUBTLE));
-  g.push(ltext(x + 52, exT + 52, "Profound loss, and you want rechargeable?", 14.5, UI, 600, INK));
-  g.push(ltext(x + 52, exT + 74, "Phonak has no answer. We say so, and say what does.", 13.5, UI, 400, SUBTLE));
-}
-
-// ── the link, as its own text node so Figma can hyperlink it ────────────────
-g.push(`<rect x="${PAD}" y="${URL_T}" width="${W - PAD * 2}" height="${URL_H}" rx="20" fill="${WHITE}" stroke="${BORDER}" stroke-width="1.5"/>`);
-g.push(icon("list-checks", PAD + 32, URL_T + 32, 30, YELLOW_DARK, 2));
-g.push(ltext(PAD + 78, URL_T + 40, "Take it here", 20, DISP, 700, INK));
-g.push(ltext(PAD + 78, URL_T + 66, "Link in the description, right at the top.", 14, UI, 400, MUTED));
-
-// the URL stands alone — Chintan attaches the hyperlink in Figma
-const urlW = URL_TEXT.length * 20 * 0.56 + 76;
-g.push(`<rect x="${W - PAD - urlW - 24}" y="${URL_T + 22}" width="${urlW}" height="52" rx="26" fill="${YELLOW}"/>`);
-g.push(ltext(W - PAD - urlW - 24 + 28, URL_T + 48, URL_TEXT, 20, DISP, 700, YELLOW_DARK));
-g.push(icon("arrow-up-right", W - PAD - 24 - 44, URL_T + 36, 24, YELLOW_DARK, 2.4));
-
-g.push(text(PAD, URL_T + URL_H + 44, "The questions are open to everyone. The answer is the part worth asking for.", 15, UI, 400, SUBTLE));
+// ── the address, big enough to read off a phone ─────────────────────────────
+g.push(`<rect x="${PAD}" y="${LINK_T}" width="${inner}" height="${LINK_H}" rx="20" fill="${WHITE}" stroke="${INK}" stroke-width="2.5"/>`);
+g.push(ltext(PAD + 34, LINK_T + LINK_H / 2, URL_TEXT, 27, DISP, 700, INK));
+g.push(icon("arrow-up-right", W - PAD - 62, LINK_T + LINK_H / 2 - 16, 32, YELLOW_DARK, 2.6));
 
 writeBoard(OUT, { w: W, h: H, body: g.join("\n") });

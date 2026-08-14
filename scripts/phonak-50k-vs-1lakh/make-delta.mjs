@@ -10,7 +10,8 @@
 // Terra+ is ₹84,000 and has already moved above the band (01-research.md line
 // 150). Starting the ladder at Terra+ skips the rung the viewer is actually
 // standing on. The Terra -> Terra+ step also carries its own honest beat, which
-// is that it is MARGINAL — you are buying Bluetooth, not better sound.
+// is that it is MARGINAL — you are buying the app and the accessories, not
+// better sound. (Corrected 2026-08-12: both Terra and Terra+ have Bluetooth.)
 //
 // THE ARGUMENT, which is Chintan's and no competitor channel makes it, is that
 // the ceiling is not what the device does out of the box — it is **how much the
@@ -28,7 +29,7 @@
 //    render that diff symmetrically or the board claims a downgrade.
 //
 // 2. Bluetooth and channel count are COLUMNS, not feature rows, so the Terra ->
-//    Terra+ diff misses the biggest change of all (Terra has no Bluetooth). They
+//    Terra+ diff would miss them entirely if left to the feature join. They
 //    are read from hearing_aid_models and merged into that rung by hand.
 //
 // 3. The L30 -> I30 delta must NOT come from the DB. The join falsely claims I30
@@ -134,7 +135,7 @@ const RUNGS = [
     listHead: "WHAT IT ADDS",
     items: terraPlusAdds.map((f) => ({ text: f })),
     bullet: "plus",
-    note: "Marginal. You are buying Bluetooth here, not better sound. And it has already left the ₹50,000 band.",
+    note: "Marginal. You are buying the app and the accessories here, not better sound. And it has already left the ₹50,000 band.",
     noteTone: "quiet",
   },
   {
